@@ -1,0 +1,4 @@
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.IRepositories\bin\Debug\Mall.Domain.IRepositories.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.IRepositories\bin\Debug\Mall.Domain.IRepositories.pdb
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.IRepositories\obj\Debug\Mall.Domain.IRepositories.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.IRepositories\obj\Debug\Mall.Domain.IRepositories.pdb

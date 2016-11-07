@@ -42,7 +42,16 @@
     <Compile Include="BuyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Mall.Domain\Mall.Domain.csproj">
+      <Project>{fcdc4b41-2723-4218-81d8-4390db492c3b}</Project>
+      <Name>Mall.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mall.Infrastructure\Mall.Infrastructure.csproj">
+      <Project>{FF2E22A1-DED7-4628-9F14-AD843C1CC862}</Project>
+      <Name>Mall.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

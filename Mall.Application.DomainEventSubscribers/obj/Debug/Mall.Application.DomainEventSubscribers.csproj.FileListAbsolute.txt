@@ -1,0 +1,4 @@
+C:\Workspaces\Demo\DDDDemo\Mall.Application.DomainEventSubscribers\bin\Debug\Mall.Application.DomainEventSubscribers.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Application.DomainEventSubscribers\bin\Debug\Mall.Application.DomainEventSubscribers.pdb
+C:\Workspaces\Demo\DDDDemo\Mall.Application.DomainEventSubscribers\obj\Debug\Mall.Application.DomainEventSubscribers.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Application.DomainEventSubscribers\obj\Debug\Mall.Application.DomainEventSubscribers.pdb

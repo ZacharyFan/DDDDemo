@@ -51,6 +51,7 @@
     <Folder Include="Aggregate\" />
     <Folder Include="Entity\" />
     <Folder Include="IDomainServices\" />
+    <Folder Include="IRepositories\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mall.Infrastructure\Mall.Infrastructure.csproj">

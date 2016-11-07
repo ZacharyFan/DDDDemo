@@ -1,0 +1,17 @@
+C:\Workspaces\Demo\DDDDemo\Mall\bin\Mall.dll.config
+C:\Workspaces\Demo\DDDDemo\Mall\bin\Mall.dll
+C:\Workspaces\Demo\DDDDemo\Mall\bin\Mall.pdb
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Helpers.dll
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Mvc.dll
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Razor.dll
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Webpages.Deployment.dll
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Webpages.dll
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Webpages.Razor.dll
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Razor.xml
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Webpages.xml
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Webpages.Deployment.xml
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Webpages.Razor.xml
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Helpers.xml
+C:\Workspaces\Demo\DDDDemo\Mall\bin\System.Web.Mvc.xml
+C:\Workspaces\Demo\DDDDemo\Mall\obj\Debug\Mall.dll
+C:\Workspaces\Demo\DDDDemo\Mall\obj\Debug\Mall.pdb

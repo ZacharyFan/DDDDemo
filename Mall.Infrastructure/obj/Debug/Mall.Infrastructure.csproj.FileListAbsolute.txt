@@ -1,0 +1,4 @@
+C:\Workspaces\Demo\DDDDemo\Mall.Infrastructure\bin\Debug\Mall.Infrastructure.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Infrastructure\bin\Debug\Mall.Infrastructure.pdb
+C:\Workspaces\Demo\DDDDemo\Mall.Infrastructure\obj\Debug\Mall.Infrastructure.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Infrastructure\obj\Debug\Mall.Infrastructure.pdb
