@@ -45,6 +45,7 @@
     <Compile Include="DomainCore\ConcurrencySafeEntity.cs" />
     <Compile Include="DomainCore\Entity.cs" />
     <Compile Include="DomainCore\IdentityValueObject.cs" />
+    <Compile Include="DomainCore\IRepository.cs" />
     <Compile Include="DomainCore\ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseHandle\JsonResponseReader.cs" />

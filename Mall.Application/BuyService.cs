@@ -1,35 +1,22 @@
 ﻿using System;
-using Mall.Domain.IRemoteServices;
+using Mall.Domain;
+using Mall.DomainService;
 using Mall.Infrastructure.Results;
 
 namespace Mall.Application
 {
     public class BuyService
     {
-        private readonly IUserService _userService;
-        private readonly IProductService _productService;
+        private readonly static UserBuyProductDomainService _userBuyProductDomainService = new UserBuyProductDomainService();
+        private readonly static GetUserCartDomainService _getUserCartDomainService = new GetUserCartDomainService();
 
-        public BuyService(IUserService userService, IProductService productService)
+        public Result Buy(Guid userId, Guid productId, int quantity)
         {
-            this._userService = userService;
-            this._productService = productService;
+            var cartItem = _userBuyProductDomainService.UserBuyProduct(userId, productId, quantity);
+            var cart = _getUserCartDomainService.GetUserCart(userId);
+            cart.AddCartItem(cartItem);
+            DomainRegistry.CartRepository().Save(cart);
+            return Result.Success();
         }
-
-        //public Result Buy(Guid userId, Guid productId)
-        //{
-        //    var user = _userService.GetUser(userId);
-        //    if (user == null)
-        //    {
-        //        return Result.Fail("未找到用户信息");
-        //    }
-
-        //    var product = _productService.GetProduct(productId);
-        //    if(product == null)
-        //    {
-        //        return Result.Fail("未找到产品信息");
-        //    }
-
-        //    return null;
-        //}
     }
 }

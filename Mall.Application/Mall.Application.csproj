@@ -43,6 +43,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mall.DomainService\Mall.DomainService.csproj">
+      <Project>{bde7d8fd-f5e4-4542-ab87-d62ee2a9c451}</Project>
+      <Name>Mall.DomainService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mall.Domain\Mall.Domain.csproj">
       <Project>{fcdc4b41-2723-4218-81d8-4390db492c3b}</Project>
       <Name>Mall.Domain</Name>

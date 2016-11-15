@@ -39,20 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aggregate\Cart.cs" />
+    <Compile Include="DomainRegistry.cs" />
+    <Compile Include="Entity\CartItem.cs" />
     <Compile Include="IRemoteServices\IProductService.cs" />
     <Compile Include="IRemoteServices\IUserService.cs" />
+    <Compile Include="IRepositories\ICartRepository.cs" />
     <Compile Include="ValueObject\Product.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObject\User.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Aggregate\" />
-    <Folder Include="Entity\" />
-    <Folder Include="IDomainServices\" />
-    <Folder Include="IRepositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Mall.Infrastructure\Mall.Infrastructure.csproj">
       <Project>{ff2e22a1-ded7-4628-9f14-ad843c1cc862}</Project>

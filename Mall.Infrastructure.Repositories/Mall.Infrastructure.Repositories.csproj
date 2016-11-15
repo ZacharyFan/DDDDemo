@@ -39,7 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SqlServerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mall.Domain\Mall.Domain.csproj">
+      <Project>{fcdc4b41-2723-4218-81d8-4390db492c3b}</Project>
+      <Name>Mall.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mall.Infrastructure\Mall.Infrastructure.csproj">
+      <Project>{ff2e22a1-ded7-4628-9f14-ad843c1cc862}</Project>
+      <Name>Mall.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
