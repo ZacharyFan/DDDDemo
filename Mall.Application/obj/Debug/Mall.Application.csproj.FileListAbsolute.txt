@@ -1,9 +1,0 @@
-C:\Workspaces\Demo\DDDDemo\Mall.Application\bin\Debug\Mall.Application.dll
-C:\Workspaces\Demo\DDDDemo\Mall.Application\bin\Debug\Mall.Application.pdb
-C:\Workspaces\Demo\DDDDemo\Mall.Application\obj\Debug\Mall.Application.csprojResolveAssemblyReference.cache
-C:\Workspaces\Demo\DDDDemo\Mall.Application\obj\Debug\Mall.Application.dll
-C:\Workspaces\Demo\DDDDemo\Mall.Application\obj\Debug\Mall.Application.pdb
-C:\Workspaces\Demo\DDDDemo\Mall.Application\bin\Debug\Mall.Domain.dll
-C:\Workspaces\Demo\DDDDemo\Mall.Application\bin\Debug\Mall.Infrastructure.dll
-C:\Workspaces\Demo\DDDDemo\Mall.Application\bin\Debug\Mall.Domain.pdb
-C:\Workspaces\Demo\DDDDemo\Mall.Application\bin\Debug\Mall.Infrastructure.pdb

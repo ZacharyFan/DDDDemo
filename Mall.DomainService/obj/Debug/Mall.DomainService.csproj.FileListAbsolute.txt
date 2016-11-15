@@ -1,4 +1,0 @@
-C:\Workspaces\Demo\DDDDemo\Mall.DomainService\bin\Debug\Mall.DomainService.dll
-C:\Workspaces\Demo\DDDDemo\Mall.DomainService\bin\Debug\Mall.DomainService.pdb
-C:\Workspaces\Demo\DDDDemo\Mall.DomainService\obj\Debug\Mall.DomainService.dll
-C:\Workspaces\Demo\DDDDemo\Mall.DomainService\obj\Debug\Mall.DomainService.pdb
