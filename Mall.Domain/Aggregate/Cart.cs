@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Mall.Domain.Entity;
 
@@ -32,8 +33,9 @@ namespace Mall.Domain.Aggregate
             this._cartItems = new List<CartItem>();
         }
 
-        public void AddCartItem(CartItem cartItem)
+        public void AddCartItem(Guid productId, int quantity, decimal price)
         {
+            var cartItem = new CartItem(productId, quantity, price);
             var existedCartItem = this._cartItems.FirstOrDefault(ent => ent.ProductId == cartItem.ProductId);
             if (existedCartItem == null)
             {
@@ -41,8 +43,31 @@ namespace Mall.Domain.Aggregate
             }
             else
             {
+                existedCartItem.ModifyPrice(cartItem.Price); //有可能价格更新了，每次都更新一下。
                 existedCartItem.ModifyQuantity(existedCartItem.Quantity + cartItem.Quantity);
             }
+        }
+
+        public ReadOnlyCollection<CartItem> GetCartItems()
+        {
+            return this._cartItems.AsReadOnly();
+        }
+
+        public CartItem GetCartItem(Guid productId)
+        {
+            return this._cartItems.SingleOrDefault(ent => ent.ProductId == productId);
+        }
+
+        public int TotalItemCount()
+        {
+            return this._cartItems.Count;
+        }
+
+        public int TotalItemNum()
+        {
+            if (this._cartItems.Count == 0)
+                return 0;
+            return this._cartItems.Sum(e => e.Quantity);
         }
     }
 }

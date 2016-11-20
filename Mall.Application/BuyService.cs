@@ -7,14 +7,18 @@ namespace Mall.Application
 {
     public class BuyService
     {
-        private readonly static UserBuyProductDomainService _userBuyProductDomainService = new UserBuyProductDomainService();
         private readonly static GetUserCartDomainService _getUserCartDomainService = new GetUserCartDomainService();
 
         public Result Buy(Guid userId, Guid productId, int quantity)
         {
-            var cartItem = _userBuyProductDomainService.UserBuyProduct(userId, productId, quantity);
+            var product = DomainRegistry.ProductService().GetProduct(productId);
+            if (product == null)
+            {
+                return Result.Fail("对不起，未能获取产品信息请重试~");
+            }
+
             var cart = _getUserCartDomainService.GetUserCart(userId);
-            cart.AddCartItem(cartItem);
+            cart.AddCartItem(productId, quantity, product.SalePrice);
             DomainRegistry.CartRepository().Save(cart);
             return Result.Success();
         }

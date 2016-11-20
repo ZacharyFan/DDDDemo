@@ -10,7 +10,7 @@ namespace Mall.Domain.Entity
 
         public decimal Price { get; private set; }
 
-        public CartItem(Guid productId, int quantity, decimal price)
+        internal CartItem(Guid productId, int quantity, decimal price)
         {
             if (productId == default(Guid))
                 throw new ArgumentException("productId 不能为default(Guid)", "productId");
@@ -18,7 +18,7 @@ namespace Mall.Domain.Entity
             if (quantity <= 0)
                 throw new ArgumentException("quantity不能小于等于0", "quantity");
 
-            if (quantity < 0)
+            if (price < 0)
                 throw new ArgumentException("price不能小于0", "price");
 
             this.ProductId = productId;
@@ -28,7 +28,18 @@ namespace Mall.Domain.Entity
 
         public void ModifyQuantity(int quantity)
         {
+            if (quantity <= 0)
+                throw new ArgumentException("quantity不能小于等于0", "quantity");
+
             this.Quantity = quantity;
+        }
+
+        public void ModifyPrice(decimal price)
+        {
+            if (price < 0)
+                throw new ArgumentException("price不能小于0", "price");
+
+            this.Price = price;
         }
     }
 }
