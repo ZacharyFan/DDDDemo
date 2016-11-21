@@ -4,7 +4,7 @@ using Mall.Domain.Aggregate;
 
 namespace Mall.DomainService
 {
-    public class GetUserCartDomainService
+    public class ConfirmUserCartExistedDomainService
     {
         public Cart GetUserCart(Guid userId)
         {

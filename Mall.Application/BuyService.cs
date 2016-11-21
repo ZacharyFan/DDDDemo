@@ -7,7 +7,7 @@ namespace Mall.Application
 {
     public class BuyService
     {
-        private readonly static GetUserCartDomainService _getUserCartDomainService = new GetUserCartDomainService();
+        private readonly static ConfirmUserCartExistedDomainService _confirmUserCartExistedDomainService = new ConfirmUserCartExistedDomainService();
 
         public Result Buy(Guid userId, Guid productId, int quantity)
         {
@@ -17,7 +17,7 @@ namespace Mall.Application
                 return Result.Fail("对不起，未能获取产品信息请重试~");
             }
 
-            var cart = _getUserCartDomainService.GetUserCart(userId);
+            var cart = _confirmUserCartExistedDomainService.GetUserCart(userId);
             cart.AddCartItem(productId, quantity, product.SalePrice);
             DomainRegistry.CartRepository().Save(cart);
             return Result.Success();

@@ -36,7 +36,7 @@ namespace Mall.Domain.Aggregate
         public void AddCartItem(Guid productId, int quantity, decimal price)
         {
             var cartItem = new CartItem(productId, quantity, price);
-            var existedCartItem = this._cartItems.FirstOrDefault(ent => ent.ProductId == cartItem.ProductId);
+            var existedCartItem = this._cartItems.SingleOrDefault(ent => ent.ProductId == cartItem.ProductId);
             if (existedCartItem == null)
             {
                 this._cartItems.Add(cartItem);
