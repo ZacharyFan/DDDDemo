@@ -43,11 +43,18 @@
     <Compile Include="Product\ProductService.cs" />
     <Compile Include="Product\ProductTranslator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SellingPrice\SellingPriceAdapter.cs" />
+    <Compile Include="SellingPrice\SellingPriceService.cs" />
+    <Compile Include="SellingPrice\SellingPriceTranslator.cs" />
     <Compile Include="User\UserAdapter.cs" />
     <Compile Include="User\UserService.cs" />
     <Compile Include="User\UserTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mall.Application.SellingPrice\Mall.Application.SellingPrice.csproj">
+      <Project>{ee4ba669-b006-4131-b4a1-92e854eb38e7}</Project>
+      <Name>Mall.Application.SellingPrice</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mall.Domain\Mall.Domain.csproj">
       <Project>{fcdc4b41-2723-4218-81d8-4390db492c3b}</Project>
       <Name>Mall.Domain</Name>

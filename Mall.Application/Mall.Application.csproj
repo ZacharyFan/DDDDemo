@@ -40,6 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuyService.cs" />
+    <Compile Include="CartService.cs" />
+    <Compile Include="DTO\CartDTO.cs" />
+    <Compile Include="DTO\CartItemDTO.cs" />
+    <Compile Include="DTO\CartItemGroupDTO.cs" />
+    <Compile Include="IBuyService.cs" />
+    <Compile Include="ICartService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

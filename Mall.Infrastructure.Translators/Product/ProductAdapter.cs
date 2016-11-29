@@ -9,7 +9,7 @@ namespace Mall.Infrastructure.Translators.Product
     {
         private static readonly ProductTranslator _productTranslator = new ProductTranslator();
 
-        public Domain.ValueObject.Product GetProduct(Guid productId)
+        public Domain.ValueObject.Product GetProduct(string productId)
         {
             var url = string.Format("http://www.test.com/product/{0}", productId.ToString());
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using Mall.Infrastructure.ResponseHandle;
 
 namespace Mall.Infrastructure.Translators.User
@@ -13,8 +12,7 @@ namespace Mall.Infrastructure.Translators.User
             string userName = reader.GetString("userName");
             string availableBalanceStr = reader.GetString("availableBalance");
 
-            Guid userId;
-            if (userIdstr == null || !Guid.TryParse(userIdstr, out userId))
+            if (userIdstr == null)
                 throw new NoNullAllowedException("未能正常解析用户ID");
 
             if (userName == null)
@@ -24,7 +22,7 @@ namespace Mall.Infrastructure.Translators.User
             if (availableBalanceStr == null || !decimal.TryParse(availableBalanceStr, out availableBalance))
                 throw new NoNullAllowedException("未能正常解析可用余额");
 
-            var user = new Domain.ValueObject.User(userId, userName, availableBalance);
+            var user = new Domain.ValueObject.User(userIdstr, userName, availableBalance);
             return user;
         }
     }

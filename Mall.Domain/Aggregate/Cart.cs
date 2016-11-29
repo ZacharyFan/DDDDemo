@@ -10,19 +10,19 @@ namespace Mall.Domain.Aggregate
     {
         private readonly List<CartItem> _cartItems;
 
-        public Guid CartId { get; private set; }
+        public string CartId { get; private set; }
 
-        public Guid UserId { get; private set; }
+        public string UserId { get; private set; }
 
         public DateTime LastChangeTime { get; private set; }
 
-        public Cart(Guid cartId, Guid userId, DateTime lastChangeTime)
+        public Cart(string cartId, string userId, DateTime lastChangeTime)
         {
-            if (cartId == default(Guid))
-                throw new ArgumentException("cartId 不能为default(Guid)", "cartId");
+            if (string.IsNullOrWhiteSpace(cartId))
+                throw new ArgumentException("cartId 不能为空", "cartId");
 
-            if (userId == default(Guid))
-                throw new ArgumentException("userId 不能为default(Guid)", "userId");
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("userId 不能为空", "userId");
 
             if (lastChangeTime == default(DateTime))
                 throw new ArgumentException("lastChangeTime 不能为default(DateTime)", "lastChangeTime");
@@ -33,7 +33,7 @@ namespace Mall.Domain.Aggregate
             this._cartItems = new List<CartItem>();
         }
 
-        public void AddCartItem(Guid productId, int quantity, decimal price)
+        public void AddCartItem(string productId, int quantity, decimal price)
         {
             var cartItem = new CartItem(productId, quantity, price);
             var existedCartItem = this._cartItems.SingleOrDefault(ent => ent.ProductId == cartItem.ProductId);
@@ -43,7 +43,7 @@ namespace Mall.Domain.Aggregate
             }
             else
             {
-                existedCartItem.ModifyPrice(cartItem.Price); //有可能价格更新了，每次都更新一下。
+                existedCartItem.ModifyUnitPrice(cartItem.UnitPrice); //有可能价格更新了，每次都更新一下。
                 existedCartItem.ModifyQuantity(existedCartItem.Quantity + cartItem.Quantity);
             }
         }
@@ -53,9 +53,14 @@ namespace Mall.Domain.Aggregate
             return this._cartItems.AsReadOnly();
         }
 
-        public CartItem GetCartItem(Guid productId)
+        public CartItem GetCartItem(string productId)
         {
             return this._cartItems.SingleOrDefault(ent => ent.ProductId == productId);
+        }
+
+        public bool IsEmpty()
+        {
+            return this._cartItems.Count == 0;
         }
 
         public int TotalItemCount()

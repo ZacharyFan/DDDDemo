@@ -7,7 +7,7 @@ namespace Mall.Domain.ValueObject
         /// <summary>
         /// 用户ID
         /// </summary>
-        public Guid UserId { get; private set; }
+        public string UserId { get; private set; }
 
         /// <summary>
         /// 用户名
@@ -19,10 +19,10 @@ namespace Mall.Domain.ValueObject
         /// </summary>
         public decimal AvailableBalance { get; private set; }
 
-        public User(Guid userId, string userName, decimal availableBalance)
+        public User(string userId, string userName, decimal availableBalance)
         {
-            if (userId == Guid.Empty)
-                throw new ArgumentException("参数不能为Guid.Empty", "userId");
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("参数不能为空", "userId");
             if (string.IsNullOrWhiteSpace(userName))
                 throw new ArgumentNullException("userName");
             if (availableBalance < 0)

@@ -9,6 +9,7 @@ namespace Mall.Domain
         private static IUserService _userService;
         private static IProductService _productService;
         private static ICartRepository _cartRepository;
+        private static ISellingPriceService _sellingPriceService;
 
         public static void RegisterUserService(IUserService userService)
         {
@@ -31,6 +32,13 @@ namespace Mall.Domain
             _cartRepository = cartRepository;
         }
 
+        public static void RegisterSellingPriceService(ISellingPriceService sellingPriceService)
+        {
+            if (sellingPriceService == null)
+                throw new ArgumentNullException("sellingPriceService");
+            _sellingPriceService = sellingPriceService;
+        }
+
         public static IUserService UserService()
         {
             return _userService;
@@ -44,6 +52,11 @@ namespace Mall.Domain
         public static ICartRepository CartRepository()
         {
             return _cartRepository;
+        }
+
+        public static ISellingPriceService SellingPriceService()
+        {
+            return _sellingPriceService;
         }
     }
 }

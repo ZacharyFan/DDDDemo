@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Net;
 using Mall.Domain.IRemoteServices;
 
 namespace Mall.Infrastructure.Translators.User

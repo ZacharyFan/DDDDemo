@@ -10,7 +10,7 @@ namespace Mall.Domain.ValueObject
         /// <summary>
         /// 商品ID
         /// </summary>
-        public Guid ProductId { get; private set; }
+        public string ProductId { get; private set; }
 
         /// <summary>
         /// 销售名称
@@ -37,10 +37,10 @@ namespace Mall.Domain.ValueObject
         /// </summary>
         public int Stock { get; private set; }
 
-        public Product(Guid productId, string saleName, decimal shoppePrice, decimal salePrice, string saleDescription, int stock)
+        public Product(string productId, string saleName, decimal shoppePrice, decimal salePrice, string saleDescription, int stock)
         {
-            if (productId == Guid.Empty)
-                throw new ArgumentException("参数不能为Guid.Empty", "productId");
+            if (string.IsNullOrWhiteSpace(productId))
+                throw new ArgumentException("productId 不能为空", "productId");
             if (string.IsNullOrWhiteSpace(saleName))
                 throw new ArgumentNullException("saleName");
             if (shoppePrice < 0)

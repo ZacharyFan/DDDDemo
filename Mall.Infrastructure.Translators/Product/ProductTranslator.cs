@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using Mall.Infrastructure.ResponseHandle;
 
 namespace Mall.Infrastructure.Translators.Product
@@ -16,8 +15,7 @@ namespace Mall.Infrastructure.Translators.Product
             string saleDescription = reader.GetString("saleDescription");
             string stockStr = reader.GetString("stock");
 
-            Guid productId;
-            if (productIdstr == null || !Guid.TryParse(productIdstr, out productId))
+            if (productIdstr == null)
                 throw new NoNullAllowedException("未能正常解析商品ID");
 
             if (saleName == null)
@@ -38,7 +36,7 @@ namespace Mall.Infrastructure.Translators.Product
             if (stockStr == null || !int.TryParse(stockStr, out stock))
                 throw new NoNullAllowedException("未能正常解析库存");
 
-            var product = new Domain.ValueObject.Product(productId, saleName, shoppePrice, salePrice, saleDescription, stock);
+            var product = new Domain.ValueObject.Product(productIdstr, saleName, shoppePrice, salePrice, saleDescription, stock);
             return product;
         }
     }

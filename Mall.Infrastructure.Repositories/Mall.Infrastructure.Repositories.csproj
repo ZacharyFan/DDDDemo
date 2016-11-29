@@ -39,10 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SqlServerRepository.cs" />
+    <Compile Include="CartSqlServerRepository.cs" />
+    <Compile Include="PromotionSqlServerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mall.Domain.SellingPrice\Mall.Domain.SellingPrice.csproj">
+      <Project>{bcafda37-3fa9-4174-97fd-bc24d0459712}</Project>
+      <Name>Mall.Domain.SellingPrice</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mall.Domain\Mall.Domain.csproj">
       <Project>{fcdc4b41-2723-4218-81d8-4390db492c3b}</Project>
       <Name>Mall.Domain</Name>

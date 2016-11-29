@@ -43,8 +43,12 @@
     <Compile Include="DomainRegistry.cs" />
     <Compile Include="Entity\CartItem.cs" />
     <Compile Include="IRemoteServices\IProductService.cs" />
+    <Compile Include="IRemoteServices\ISellingPriceService.cs" />
     <Compile Include="IRemoteServices\IUserService.cs" />
     <Compile Include="IRepositories\ICartRepository.cs" />
+    <Compile Include="ValueObject\SellingPriceCart.cs" />
+    <Compile Include="ValueObject\SellingPriceCartItem.cs" />
+    <Compile Include="ValueObject\SellingPriceFullGroup.cs" />
     <Compile Include="ValueObject\Product.cs">
       <SubType>Code</SubType>
     </Compile>

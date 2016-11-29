@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE4BA669-B006-4131-B4A1-92E854EB38E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mall.Application.SellingPrice</RootNamespace>
+    <AssemblyName>Mall.Application.SellingPrice</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalculateSalePriceService.cs" />
+    <Compile Include="DTO\CalculatedCartDTO.cs" />
+    <Compile Include="DTO\CalculatedCartItemDTO.cs" />
+    <Compile Include="DTO\CalculatedFullGroupDTO.cs" />
+    <Compile Include="DTO\CartRequest.cs" />
+    <Compile Include="DTO\CartItemRequest.cs" />
+    <Compile Include="ICalculateSalePriceService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mall.Application.SellingPrice.DomainEventSubscribers\Mall.Application.SellingPrice.DomainEventSubscribers.csproj">
+      <Project>{7e1d8a35-5128-4df8-8f0a-3acf5eaee9f3}</Project>
+      <Name>Mall.Application.SellingPrice.DomainEventSubscribers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mall.Domain.SellingPrice\Mall.Domain.SellingPrice.csproj">
+      <Project>{bcafda37-3fa9-4174-97fd-bc24d0459712}</Project>
+      <Name>Mall.Domain.SellingPrice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mall.DomainService.SellingPrice\Mall.DomainService.SellingPrice.csproj">
+      <Project>{849b2dd2-52b8-4c77-a54e-3cf9e72530e7}</Project>
+      <Name>Mall.DomainService.SellingPrice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mall.Infrastructure\Mall.Infrastructure.csproj">
+      <Project>{ff2e22a1-ded7-4628-9f14-ad843c1cc862}</Project>
+      <Name>Mall.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

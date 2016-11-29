@@ -4,9 +4,9 @@ using Mall.Domain.IRepositories;
 
 namespace Mall.Infrastructure.Repositories
 {
-    public class SqlServerRepository : ICartRepository
+    public class CartSqlServerRepository : ICartRepository
     {
-        public Guid NextIdentity()
+        public string NextIdentity()
         {
             throw new NotImplementedException();
         }
@@ -16,17 +16,17 @@ namespace Mall.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public void Remove(Guid identity)
+        public void Remove(string identity)
         {
             throw new NotImplementedException();
         }
 
-        public Cart GetByIdentity(Guid identity)
+        public Cart GetByIdentity(string identity)
         {
             throw new NotImplementedException();
         }
 
-        public Cart GetByUserId(Guid userId)
+        public Cart GetByUserId(string userId)
         {
             throw new NotImplementedException();
         }

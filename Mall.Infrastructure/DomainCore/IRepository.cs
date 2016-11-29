@@ -4,12 +4,12 @@ namespace Mall.Infrastructure.DomainCore
 {
     public interface IRepository<T> where T : Aggregate
     {
-        Guid NextIdentity();
+        string NextIdentity();
 
         void Save(T aggregate);
 
-        void Remove(Guid identity);
+        void Remove(string identity);
 
-        T GetByIdentity(Guid identity);
+        T GetByIdentity(string identity);
     }
 }

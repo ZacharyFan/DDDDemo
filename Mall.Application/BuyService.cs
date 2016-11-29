@@ -1,15 +1,14 @@
-﻿using System;
-using Mall.Domain;
+﻿using Mall.Domain;
 using Mall.DomainService;
 using Mall.Infrastructure.Results;
 
 namespace Mall.Application
 {
-    public class BuyService
+    public class BuyService : IBuyService
     {
         private readonly static ConfirmUserCartExistedDomainService _confirmUserCartExistedDomainService = new ConfirmUserCartExistedDomainService();
 
-        public Result Buy(Guid userId, Guid productId, int quantity)
+        public Result Buy(string userId, string productId, int quantity)
         {
             var product = DomainRegistry.ProductService().GetProduct(productId);
             if (product == null)

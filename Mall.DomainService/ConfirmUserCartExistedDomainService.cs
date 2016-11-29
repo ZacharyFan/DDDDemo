@@ -6,7 +6,7 @@ namespace Mall.DomainService
 {
     public class ConfirmUserCartExistedDomainService
     {
-        public Cart GetUserCart(Guid userId)
+        public Cart GetUserCart(string userId)
         {
             var cart = DomainRegistry.CartRepository().GetByUserId(userId);
             if (cart == null)

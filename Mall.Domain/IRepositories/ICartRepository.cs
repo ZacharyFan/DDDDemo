@@ -6,6 +6,6 @@ namespace Mall.Domain.IRepositories
 {
     public interface ICartRepository : IRepository<Cart>
     {
-        Cart GetByUserId(Guid userId);
+        Cart GetByUserId(string userId);
     }
 }
