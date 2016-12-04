@@ -25,7 +25,8 @@ namespace Mall.Infrastructure.Translators.SellingPrice
                 {
                     ProductId = ent.ProductId,
                     Quantity = ent.Quantity,
-                    UnitPrice = ent.UnitPrice
+                    UnitPrice = ent.UnitPrice,
+                    SelectedMultiProductsPromotionId = ent.SelectedMultiProductsPromotionId
                 }).ToArray(),
                 CartId = cart.CartId
             };

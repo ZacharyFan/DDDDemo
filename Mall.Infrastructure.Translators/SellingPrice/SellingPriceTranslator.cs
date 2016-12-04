@@ -15,7 +15,7 @@ namespace Mall.Infrastructure.Translators.SellingPrice
 
         public SellingPriceFullGroup ToSellingPriceFullGroup(CalculatedFullGroupDTO dto)
         {
-            return new SellingPriceFullGroup(dto.CalculatedCartItems.Select(ToSellingPriceCartItem), dto.ReducePrice);
+            return new SellingPriceFullGroup(dto.CalculatedCartItems.Select(ToSellingPriceCartItem), dto.ReducePrice, dto.MultiProductsPromotionId);
         }
 
         public SellingPriceCartItem ToSellingPriceCartItem(CalculatedCartItemDTO dto)

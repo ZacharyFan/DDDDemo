@@ -10,7 +10,9 @@ namespace Mall.Domain.Entity
 
         public decimal UnitPrice { get; private set; }
 
-        internal CartItem(string productId, int quantity, decimal unitPrice)
+        public string SelectedMultiProductsPromotionId { get; private set; }
+
+        internal CartItem(string productId, int quantity, decimal unitPrice, string selectedMultiProductsPromotionId)
         {
             if (string.IsNullOrWhiteSpace(productId))
                 throw new ArgumentException("productId 不能为空", "productId");
@@ -24,6 +26,7 @@ namespace Mall.Domain.Entity
             this.ProductId = productId;
             this.Quantity = quantity;
             this.UnitPrice = unitPrice;
+            this.SelectedMultiProductsPromotionId = selectedMultiProductsPromotionId;
         }
 
         public void ModifyQuantity(int quantity)
@@ -40,6 +43,11 @@ namespace Mall.Domain.Entity
                 throw new ArgumentException("unitPrice不能小于0", "unitPrice");
 
             this.UnitPrice = unitPrice;
+        }
+
+        public void ChangeMultiProductsPromotion(string selectedMultiProductsPromotionId)
+        {
+            this.SelectedMultiProductsPromotionId = selectedMultiProductsPromotionId;
         }
     }
 }

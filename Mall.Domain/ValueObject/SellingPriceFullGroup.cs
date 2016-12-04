@@ -10,7 +10,9 @@ namespace Mall.Domain.ValueObject
 
         public decimal ReducePrice { get; private set; }
 
-        public SellingPriceFullGroup(IEnumerable<SellingPriceCartItem> cartItems, decimal reducePrice)
+        public string MultiProductsPromotionId { get; private set; }
+
+        public SellingPriceFullGroup(IEnumerable<SellingPriceCartItem> cartItems, decimal reducePrice, string multiProductsPromotionId)
         {
             if (cartItems == null)
                 throw new ArgumentNullException("cartItems");
@@ -23,6 +25,7 @@ namespace Mall.Domain.ValueObject
 
             this.CartItems = cartItems.ToArray();
             this.ReducePrice = reducePrice;
+            this.MultiProductsPromotionId = multiProductsPromotionId;
         }
     }
 }

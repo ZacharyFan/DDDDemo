@@ -46,6 +46,7 @@
     <Compile Include="DTO\CartRequest.cs" />
     <Compile Include="DTO\CartItemRequest.cs" />
     <Compile Include="ICalculateSalePriceService.cs" />
+    <Compile Include="Mapper\ValueObjectToDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

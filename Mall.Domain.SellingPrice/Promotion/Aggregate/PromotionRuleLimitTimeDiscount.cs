@@ -2,16 +2,28 @@
 
 namespace Mall.Domain.SellingPrice.Promotion.Aggregate
 {
-    public class PromotionRuleLimitTimeDiscount : PromotionRule
+    /// <summary>
+    /// 限时折扣
+    /// </summary>
+    public class PromotionRuleLimitTimeDiscount : SingleProductPromotionRule
     {
+        /// <summary>
+        /// 限时折扣开始时间
+        /// </summary>
         public DateTime StartTime { get; private set; }
 
+        /// <summary>
+        /// 限时折扣结束时间
+        /// </summary>
         public DateTime EndTime { get; private set; }
 
-        public decimal Price { get; private set; }
+        /// <summary>
+        /// 限时售价
+        /// </summary>
+        public decimal LimitTimePrice { get; private set; }
 
-        public PromotionRuleLimitTimeDiscount(string promotionId, string title, DateTime startTime, DateTime endTime, decimal price)
-            : base(promotionId, title)
+        public PromotionRuleLimitTimeDiscount(string promotionId, string title, string containsProductId, string containsProductName, DateTime startTime, DateTime endTime, decimal limitTimePrice)
+            : base(promotionId, title, containsProductId, containsProductName)
         {
             if (startTime == default(DateTime))
                 throw new ArgumentException("startTime不能为default(DateTime)", "startTime");
@@ -19,12 +31,12 @@ namespace Mall.Domain.SellingPrice.Promotion.Aggregate
             if (endTime == default(DateTime))
                 throw new ArgumentException("endTime不能为default(DateTime)", "endTime");
 
-            if (price < 0)
-                throw new ArgumentException("price不能小于0", "price");
+            if (limitTimePrice < 0)
+                throw new ArgumentException("price不能小于0", "limitTimePrice");
 
             this.StartTime = startTime;
             this.EndTime = endTime;
-            this.Price = price;
+            this.LimitTimePrice = limitTimePrice;
         }
 
         public decimal CalculateReducePrice(string productId, decimal unitPrice, DateTime dateTime)
@@ -36,12 +48,7 @@ namespace Mall.Domain.SellingPrice.Promotion.Aggregate
             if (nowTime < this.StartTime || nowTime > this.EndTime)
                 return 0;
 
-            return unitPrice - this.Price;
-        }
-
-        public override bool IsFullPromotion()
-        {
-            return false;
+            return unitPrice - this.LimitTimePrice;
         }
     }
 }

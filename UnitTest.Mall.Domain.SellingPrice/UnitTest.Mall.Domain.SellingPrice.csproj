@@ -51,8 +51,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest_PromotionRuleBuyMoreDiscount.cs" />
+    <Compile Include="UnitTest_PromotionRuleBuyMoreSomeFree.cs" />
+    <Compile Include="UnitTest_SingleProductPromotionRule.cs" />
+    <Compile Include="UnitTest_PromotionRuleMeetReduction.cs" />
     <Compile Include="UnitTest_PromotionRuleLimitTimeDiscount.cs" />
-    <Compile Include="UnitTest_PromotionRule.cs" />
+    <Compile Include="UnitTest_MultiProductPromotionRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mall.Domain.SellingPrice\Mall.Domain.SellingPrice.csproj">

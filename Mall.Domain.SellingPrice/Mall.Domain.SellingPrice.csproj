@@ -42,10 +42,18 @@
     <Compile Include="DomainRegistry.cs" />
     <Compile Include="MemberPrice\ValueObject\RoleDiscountRelation.cs" />
     <Compile Include="MemberPrice\ValueObject\UserRoleRelation.cs" />
+    <Compile Include="Promotion\Aggregate\IMultiProductsPromotion.cs" />
+    <Compile Include="Promotion\Aggregate\IMultiProdcutsReducePricePromotion.cs" />
+    <Compile Include="Promotion\Aggregate\ISingleProductPromotion.cs" />
+    <Compile Include="Promotion\Aggregate\MultiProductPromotionRule.cs" />
     <Compile Include="Promotion\Aggregate\PromotionRule.cs" />
-    <Compile Include="Promotion\Aggregate\PromotionRuleFullReduction.cs" />
+    <Compile Include="Promotion\Aggregate\PromotionRuleBuyMoreDiscount.cs" />
+    <Compile Include="Promotion\Aggregate\PromotionRuleBuyMoreSomeFree.cs" />
+    <Compile Include="Promotion\Aggregate\PromotionRuleMeetReduction.cs" />
     <Compile Include="Promotion\Aggregate\PromotionRuleLimitTimeDiscount.cs" />
+    <Compile Include="Promotion\Aggregate\SingleProductPromotionRule.cs" />
     <Compile Include="Promotion\IRepositories\IPromotionRepository.cs" />
+    <Compile Include="Promotion\ValueObject\BoughtProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Promotion\ValueObject\PromotionContainsProduct.cs" />
   </ItemGroup>

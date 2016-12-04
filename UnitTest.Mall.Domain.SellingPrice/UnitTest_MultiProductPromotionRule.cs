@@ -4,12 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTest.Mall.Domain.SellingPrice
 {
     [TestClass]
-    public class UnitTest_PromotionRule
+    public class UnitTest_MultiProductPromotionRule
     {
         [TestMethod]
         public void JoinProduct_SameProduct_NoAffect()
         {
-            var promotion = (PromotionRule)new PromotionRuleFullReduction("promotionId", "title", 100, 10);
+            var promotion = (MultiProductPromotionRule)new PromotionRuleMeetReduction("promotionId", "title", 100, 10);
             promotion.JoinProduct("productId", "productName");
             var containsProducts = promotion.GetPromotionContainsProducts();
             Assert.AreNotEqual(null, containsProducts);
@@ -24,7 +24,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
         [TestMethod]
         public void JoinProduct_DifferentProduct_Success()
         {
-            var promotion = (PromotionRule)new PromotionRuleFullReduction("promotionId", "title", 100, 10);
+            var promotion = (MultiProductPromotionRule)new PromotionRuleMeetReduction("promotionId", "title", 100, 10);
             promotion.JoinProduct("productId1", "productName");
             var containsProducts = promotion.GetPromotionContainsProducts();
             Assert.AreNotEqual(null, containsProducts);
@@ -39,31 +39,31 @@ namespace UnitTest.Mall.Domain.SellingPrice
         [TestMethod]
         public void RemoveProduct_NotExist_NoAffect()
         {
-            var promotion = (PromotionRule)new PromotionRuleFullReduction("promotionId", "title", 100, 10);
+            var promotion = (MultiProductPromotionRule)new PromotionRuleMeetReduction("promotionId", "title", 100, 10);
             promotion.JoinProduct("productId1", "productName");
             var containsProducts = promotion.GetPromotionContainsProducts();
             Assert.AreNotEqual(null, containsProducts);
-            Assert.AreEqual(1, containsProducts.Count);
+            Assert.AreEqual(true, promotion.IsExistedProduct("productId1"));
 
             promotion.RemoveProduct("productId2");
             containsProducts = promotion.GetPromotionContainsProducts();
             Assert.AreNotEqual(null, containsProducts);
-            Assert.AreEqual(1, containsProducts.Count);
+            Assert.AreEqual(true, promotion.IsExistedProduct("productId1"));
         }
 
         [TestMethod]
         public void RemoveProduct_Exist_Success()
         {
-            var promotion = (PromotionRule)new PromotionRuleFullReduction("promotionId", "title", 100, 10);
+            var promotion = (MultiProductPromotionRule)new PromotionRuleMeetReduction("promotionId", "title", 100, 10);
             promotion.JoinProduct("productId1", "productName");
             var containsProducts = promotion.GetPromotionContainsProducts();
             Assert.AreNotEqual(null, containsProducts);
-            Assert.AreEqual(1, containsProducts.Count);
+            Assert.AreEqual(true, promotion.IsExistedProduct("productId1"));
 
             promotion.RemoveProduct("productId1");
             containsProducts = promotion.GetPromotionContainsProducts();
             Assert.AreNotEqual(null, containsProducts);
-            Assert.AreEqual(0, containsProducts.Count);
+            Assert.AreEqual(false, promotion.IsExistedProduct("productId1"));
         }
     }
 }

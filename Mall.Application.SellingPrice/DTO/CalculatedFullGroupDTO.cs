@@ -5,5 +5,7 @@
         public CalculatedCartItemDTO[] CalculatedCartItems { get; set; }
 
         public decimal ReducePrice { get; set; }
+
+        public string MultiProductsPromotionId { get; set; }
     }
 }
