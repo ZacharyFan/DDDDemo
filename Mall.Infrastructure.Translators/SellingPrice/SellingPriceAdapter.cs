@@ -28,7 +28,8 @@ namespace Mall.Infrastructure.Translators.SellingPrice
                     UnitPrice = ent.UnitPrice,
                     SelectedMultiProductsPromotionId = ent.SelectedMultiProductsPromotionId
                 }).ToArray(),
-                CartId = cart.CartId
+                CartId = cart.CartId,
+                UserId = cart.UserId
             };
         }
     }

@@ -3,6 +3,7 @@ using System.Linq;
 using Mall.Application.SellingPrice.DTO;
 using Mall.Application.SellingPrice.Mapper;
 using Mall.Domain;
+using Mall.Domain.SellingPrice;
 using Mall.Domain.SellingPrice.Promotion.Aggregate;
 using Mall.Domain.SellingPrice.Promotion.ValueObject;
 using Mall.DomainService.SellingPrice;
@@ -20,7 +21,7 @@ namespace Mall.Application.SellingPrice
             foreach (var cartItemRequest in cart.CartItems)
             {
                 var promotionRules = DomainRegistry.PromotionRepository().GetListByContainsProductId(cartItemRequest.ProductId);
-                var boughtProduct = new BoughtProduct(cartItemRequest.ProductId, cartItemRequest.Quantity, cartItemRequest.UnitPrice, 0, promotionRules, cartItemRequest.SelectedMultiProductsPromotionId);
+                var boughtProduct = new BoughtProduct(cartItemRequest.ProductId, cartItemRequest.Quantity, cartItemRequest.UnitPrice, 0, 0, promotionRules, cartItemRequest.SelectedMultiProductsPromotionId);
                 boughtProducts.Add(boughtProduct);
             }
 
@@ -43,7 +44,7 @@ namespace Mall.Application.SellingPrice
                 var multiProdcutsReducePricePromotion = (IMultiProdcutsReducePricePromotion)groupedPromotoinId.First().InMultiProductPromotionRule;  //暂时只有减金额的多商品促销
                 var products = groupedPromotoinId.ToList();
 
-                if (multiProdcutsReducePricePromotion == null) 
+                if (multiProdcutsReducePricePromotion == null)
                     continue;
 
                 var reducePrice = multiProdcutsReducePricePromotion.CalculateReducePrice(products);
@@ -56,10 +57,30 @@ namespace Mall.Application.SellingPrice
             }
             #endregion
 
+            #region 处理未参与满减的商品的会员价
+            var noFullCartItems = boughtProducts.Where(ent => fullGroupDtos.SelectMany(e => e.CalculatedCartItems).All(e => e.ProductId != ent.ProductId)).ToList();
+            var userRoleRelation = DomainRegistry.UserService().GetUserRoleRelation(cart.UserId);
+            if (userRoleRelation != null)
+            {
+                var roleDiscountRelation = DomainRegistry.RoleDiscountRelationRepository().Get(userRoleRelation.RoleId);
+                if (roleDiscountRelation != null)
+                {
+                    foreach (var boughtProduct in noFullCartItems.ToList())
+                    {
+                        var reducePriceByMemberPrice = roleDiscountRelation.CalculateDiscountedPrice(boughtProduct.DiscountedUnitPrice);
+                        var newBoughtProduct = boughtProduct.ChangeReducePriceByMemberPrice(reducePriceByMemberPrice);
+
+                        noFullCartItems.Remove(boughtProduct);
+                        noFullCartItems.Add(newBoughtProduct);
+                    }
+                }
+            }
+
+            #endregion
+
             return new CalculatedCartDTO
             {
-                CalculatedCartItems = boughtProducts.Where(ent => fullGroupDtos.SelectMany(e => e.CalculatedCartItems).All(e => e.ProductId != ent.ProductId))
-                                                    .Select(ent => ent.ToDTO()).ToArray(),
+                CalculatedCartItems = noFullCartItems.Select(ent => ent.ToDTO()).ToArray(),
                 CalculatedFullGroups = fullGroupDtos.ToArray(),
                 CartId = cart.CartId
             };

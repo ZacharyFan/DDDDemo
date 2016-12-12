@@ -40,9 +40,9 @@ namespace UnitTest.Mall.Domain.SellingPrice
             Assert.AreEqual(true, promotion.IsExistedProduct("productId3"));
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId1",QUANTITY,UNIT_PRICE_PRODUCT1,0,null,null),
-                new BoughtProduct("productId2",QUANTITY,UNIT_PRICE_PRODUCT2,0,null,null),
-                new BoughtProduct("productId3",QUANTITY,UNIT_PRICE_PRODUCT3,0,null,null)
+                new BoughtProduct("productId1",QUANTITY,UNIT_PRICE_PRODUCT1,0,0,null,null),
+                new BoughtProduct("productId2",QUANTITY,UNIT_PRICE_PRODUCT2,0,0,null,null),
+                new BoughtProduct("productId3",QUANTITY,UNIT_PRICE_PRODUCT3,0,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(0, reducePrice);
@@ -66,9 +66,9 @@ namespace UnitTest.Mall.Domain.SellingPrice
             Assert.AreEqual(true, promotion.IsExistedProduct("productId3"));
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId1",QUANTITY,UNIT_PRICE_PRODUCT1,0,null,null),
-                new BoughtProduct("productId2",QUANTITY,UNIT_PRICE_PRODUCT2,0,null,null),
-                new BoughtProduct("productId3",QUANTITY,UNIT_PRICE_PRODUCT3,0,null,null)
+                new BoughtProduct("productId1",QUANTITY,UNIT_PRICE_PRODUCT1,0,0,null,null),
+                new BoughtProduct("productId2",QUANTITY,UNIT_PRICE_PRODUCT2,0,0,null,null),
+                new BoughtProduct("productId3",QUANTITY,UNIT_PRICE_PRODUCT3,0,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(UNIT_PRICE_PRODUCT1 * QUANTITY + UNIT_PRICE_PRODUCT2 * (FREEQUANTITY - QUANTITY), reducePrice);
@@ -85,7 +85,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
             Assert.AreEqual(true, promotion.IsExistedProduct("productId1"));
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId1",MEETQUANTITY,UNIT_PRICE_PRODUCT,0,null,null)
+                new BoughtProduct("productId1",MEETQUANTITY,UNIT_PRICE_PRODUCT,0,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(UNIT_PRICE_PRODUCT * FREEQUANTITY, reducePrice);

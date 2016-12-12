@@ -27,7 +27,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
             Assert.AreEqual(true, promotion.IsExistedProduct("productId"));
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId",1,12,0,null,null)
+                new BoughtProduct("productId",1,12,0,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(0, reducePrice);
@@ -43,7 +43,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
             Assert.AreEqual(true, promotion.IsExistedProduct("productId"));
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId",QUANTITY,UNIT_PRICE,0,null,null)
+                new BoughtProduct("productId",QUANTITY,UNIT_PRICE,0,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(UNIT_PRICE * QUANTITY * 0.5M, reducePrice);
@@ -59,7 +59,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
             Assert.AreEqual(true, promotion.IsExistedProduct("productId"));
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId",QUANTITY,UNIT_PRICE,0,null,null)
+                new BoughtProduct("productId",QUANTITY,UNIT_PRICE,0,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(UNIT_PRICE * QUANTITY * 0.5M, reducePrice);

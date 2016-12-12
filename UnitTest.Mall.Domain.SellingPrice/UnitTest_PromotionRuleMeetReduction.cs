@@ -15,7 +15,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
             promotion.JoinProduct("productId", "productName");
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId",1,5,1,null,null)
+                new BoughtProduct("productId",1,5,1,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(0, reducePrice);
@@ -28,7 +28,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
             promotion.JoinProduct("productId", "productName");
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId",1,11,1,null,null)
+                new BoughtProduct("productId",1,11,1,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(10, reducePrice);
@@ -41,7 +41,7 @@ namespace UnitTest.Mall.Domain.SellingPrice
             promotion.JoinProduct("productId", "productName");
             List<BoughtProduct> products = new List<BoughtProduct>
             {
-                new BoughtProduct("productId",1,11,1,null,null)
+                new BoughtProduct("productId",1,11,1,0,null,null)
             };
             var reducePrice = promotion.CalculateReducePrice(products);
             Assert.AreEqual(10, reducePrice);

@@ -2,16 +2,17 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using Mall.Domain.SellingPrice.MemberPrice.ValueObject;
 
-namespace Mall.Infrastructure.Translators.User
+namespace Mall.Infrastructure.SellingPrice.Translators.User
 {
     public class UserAdapter
     {
         private static readonly UserTranslator _userTranslator = new UserTranslator();
 
-        public Domain.ValueObject.User GetUser(string userId)
+        public UserRoleRelation GetUserRoleRelation(string userId)
         {
-            var url = string.Format("http://www.test.com/user/{0}", userId);
+            var url = string.Format("http://www.test.com/userrolerelation/{0}", userId.ToString());
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             using (HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse())
             {
@@ -20,7 +21,7 @@ namespace Mall.Infrastructure.Translators.User
                     using (var stream = httpWebResponse.GetResponseStream())
                     {
                         var strReturn = new StreamReader(stream, Encoding.UTF8).ReadToEnd();
-                        return _userTranslator.ToUser(strReturn);
+                        return _userTranslator.ToUserRoleRelation(strReturn);
                     }
                 }
 

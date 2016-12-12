@@ -7,7 +7,7 @@ namespace Mall.Infrastructure.Translators.User
     {
         private static readonly UserAdapter _userAdapter = new UserAdapter();
 
-        public Domain.ValueObject.User GetUser(Guid userId)
+        public Domain.ValueObject.User GetUser(string userId)
         {
             return _userAdapter.GetUser(userId);
         }

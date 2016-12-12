@@ -5,6 +5,6 @@ namespace Mall.Domain.IRemoteServices
 {
     public interface IUserService
     {
-        User GetUser(Guid userId);
+        User GetUser(string userId);
     }
 }
