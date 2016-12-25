@@ -23,12 +23,12 @@ namespace Mall.Infrastructure.Translators.SellingPrice
             {
                 CartItems = cart.GetCartItems().Select(ent => new CartItemRequest
                 {
-                    ProductId = ent.ProductId,
+                    ProductId = ent.ID,
                     Quantity = ent.Quantity,
                     UnitPrice = ent.UnitPrice,
                     SelectedMultiProductsPromotionId = ent.SelectedMultiProductsPromotionId
                 }).ToArray(),
-                CartId = cart.CartId,
+                CartId = cart.ID,
                 UserId = cart.UserId
             };
         }

@@ -6,11 +6,9 @@ using Mall.Domain.Entity;
 
 namespace Mall.Domain.Aggregate
 {
-    public class Cart : Infrastructure.DomainCore.Aggregate
+    public class Cart : Infrastructure.DomainCore.AggregateRoot
     {
         private readonly List<CartItem> _cartItems;
-
-        public string CartId { get; private set; }
 
         public string UserId { get; private set; }
 
@@ -27,7 +25,7 @@ namespace Mall.Domain.Aggregate
             if (lastChangeTime == default(DateTime))
                 throw new ArgumentException("lastChangeTime 不能为default(DateTime)", "lastChangeTime");
 
-            this.CartId = cartId;
+            this.ID = cartId;
             this.UserId = userId;
             this.LastChangeTime = lastChangeTime;
             this._cartItems = new List<CartItem>();
@@ -36,7 +34,7 @@ namespace Mall.Domain.Aggregate
         public void AddCartItem(string productId, int quantity, decimal price)
         {
             var cartItem = new CartItem(productId, quantity, price, null);
-            var existedCartItem = this._cartItems.SingleOrDefault(ent => ent.ProductId == cartItem.ProductId);
+            var existedCartItem = this._cartItems.SingleOrDefault(ent => ent.ID == cartItem.ID);
             if (existedCartItem == null)
             {
                 this._cartItems.Add(cartItem);
@@ -55,7 +53,7 @@ namespace Mall.Domain.Aggregate
 
         public CartItem GetCartItem(string productId)
         {
-            return this._cartItems.SingleOrDefault(ent => ent.ProductId == productId);
+            return this._cartItems.SingleOrDefault(ent => ent.ID == productId);
         }
 
         public bool IsEmpty()

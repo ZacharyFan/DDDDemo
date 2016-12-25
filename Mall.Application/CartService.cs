@@ -40,10 +40,10 @@ namespace Mall.Application
 
         private CartItemDTO ConvertToCartItem(SellingPriceCartItem sellingPriceCartItem, CartItem cartItem)
         {
-            var product = DomainRegistry.ProductService().GetProduct(cartItem.ProductId);
+            var product = DomainRegistry.ProductService().GetProduct(cartItem.ID);
             return new CartItemDTO
             {
-                ProductId = cartItem.ProductId,
+                ProductId = cartItem.ID,
                 ProductName = product == null ? "商品已失效" : product.SaleName,
                 ReducePrice = sellingPriceCartItem.ReducePrice,
                 SalePrice = cartItem.UnitPrice

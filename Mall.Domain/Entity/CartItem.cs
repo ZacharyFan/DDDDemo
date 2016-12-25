@@ -4,8 +4,6 @@ namespace Mall.Domain.Entity
 {
     public class CartItem : Infrastructure.DomainCore.Entity
     {
-        public string ProductId { get; private set; }
-
         public int Quantity { get; private set; }
 
         public decimal UnitPrice { get; private set; }
@@ -23,7 +21,7 @@ namespace Mall.Domain.Entity
             if (unitPrice < 0)
                 throw new ArgumentException("unitPrice不能小于0", "unitPrice");
 
-            this.ProductId = productId;
+            this.ID = productId;
             this.Quantity = quantity;
             this.UnitPrice = unitPrice;
             this.SelectedMultiProductsPromotionId = selectedMultiProductsPromotionId;

@@ -1,9 +1,9 @@
 ﻿namespace Mall.Infrastructure.DomainCore
 {
     /// <summary>
-    /// 标识继承该类的是一个聚合
+    /// 表示可独立存储的对象
     /// </summary>
-    public class Aggregate : Entity
+    public interface IAloneStorable
     {
     }
 }

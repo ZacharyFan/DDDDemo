@@ -1,9 +1,9 @@
 ﻿namespace Mall.Infrastructure.DomainCore
 {
     /// <summary>
-    /// 标识继承该类的是拥有一个委派标识的值对象
+    /// 表示继承该类的是拥有一个唯一标识的对象
     /// </summary>
-    public abstract class IdentityValueObject
+    public abstract class DelegateIdentifier
     {
         /// <summary>
         /// 委派标识

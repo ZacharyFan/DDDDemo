@@ -2,7 +2,6 @@
 using System.Linq;
 using Mall.Application.SellingPrice.DTO;
 using Mall.Application.SellingPrice.Mapper;
-using Mall.Domain;
 using Mall.Domain.SellingPrice;
 using Mall.Domain.SellingPrice.Promotion.Aggregate;
 using Mall.Domain.SellingPrice.Promotion.ValueObject;
@@ -39,7 +38,7 @@ namespace Mall.Application.SellingPrice
 
             #region 处理多商品促销&构造DTO模型
             List<CalculatedFullGroupDTO> fullGroupDtos = new List<CalculatedFullGroupDTO>();
-            foreach (var groupedPromotoinId in boughtProducts.Where(ent => ent.InMultiProductPromotionRule != null).GroupBy(ent => ((PromotionRule)ent.InMultiProductPromotionRule).PromotoinId))
+            foreach (var groupedPromotoinId in boughtProducts.Where(ent => ent.InMultiProductPromotionRule != null).GroupBy(ent => ((PromotionRule)ent.InMultiProductPromotionRule).ID))
             {
                 var multiProdcutsReducePricePromotion = (IMultiProdcutsReducePricePromotion)groupedPromotoinId.First().InMultiProductPromotionRule;  //暂时只有减金额的多商品促销
                 var products = groupedPromotoinId.ToList();
@@ -62,7 +61,7 @@ namespace Mall.Application.SellingPrice
             var userRoleRelation = DomainRegistry.UserService().GetUserRoleRelation(cart.UserId);
             if (userRoleRelation != null)
             {
-                var roleDiscountRelation = DomainRegistry.RoleDiscountRelationRepository().Get(userRoleRelation.RoleId);
+                var roleDiscountRelation = DomainRegistry.RoleDiscountRelationRepository().GetByIdentity(userRoleRelation.RoleId);
                 if (roleDiscountRelation != null)
                 {
                     foreach (var boughtProduct in noFullCartItems.ToList())

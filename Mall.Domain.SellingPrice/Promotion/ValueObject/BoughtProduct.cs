@@ -69,7 +69,7 @@ namespace Mall.Domain.SellingPrice.Promotion.ValueObject
                 var multiProductsPromotions = this._promotionRules.OfType<IMultiProductsPromotion>().ToList();
                 if (multiProductsPromotions.Count > 0)
                 {
-                    var selectedMultiProductsPromotionRule = multiProductsPromotions.SingleOrDefault(ent => ((PromotionRule)ent).PromotoinId == selectedMultiProdcutsPromotionId);
+                    var selectedMultiProductsPromotionRule = multiProductsPromotions.SingleOrDefault(ent => ((PromotionRule)ent).ID == selectedMultiProdcutsPromotionId);
 
                     InMultiProductPromotionRule = selectedMultiProductsPromotionRule ?? multiProductsPromotions.First();
                 }
@@ -86,7 +86,7 @@ namespace Mall.Domain.SellingPrice.Promotion.ValueObject
 
             var selectedMultiProdcutsPromotionId = this.InMultiProductPromotionRule == null
                 ? null
-                : ((PromotionRule)this.InMultiProductPromotionRule).PromotoinId;
+                : ((PromotionRule)this.InMultiProductPromotionRule).ID;
             return new BoughtProduct(this.ProductId, this.Quantity, this.UnitPrice, reducePrice, this.ReducePriceByMemberPrice, this._promotionRules, selectedMultiProdcutsPromotionId);
         }
 
@@ -100,7 +100,7 @@ namespace Mall.Domain.SellingPrice.Promotion.ValueObject
 
             var selectedMultiProdcutsPromotionId = this.InMultiProductPromotionRule == null
                 ? null
-                : ((PromotionRule)this.InMultiProductPromotionRule).PromotoinId;
+                : ((PromotionRule)this.InMultiProductPromotionRule).ID;
             return new BoughtProduct(this.ProductId, this.Quantity, this.UnitPrice, this.ReducePrice, reducePriceByMemberPrice, this._promotionRules, selectedMultiProdcutsPromotionId);
         }
     }

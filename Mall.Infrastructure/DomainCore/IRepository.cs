@@ -1,14 +1,10 @@
-﻿using System;
-
-namespace Mall.Infrastructure.DomainCore
+﻿namespace Mall.Infrastructure.DomainCore
 {
-    public interface IRepository<T> where T : Aggregate
+    public interface IRepository<T> where T : DelegateIdentifier, IAloneStorable
     {
         string NextIdentity();
 
         void Save(T aggregate);
-
-        void Remove(string identity);
 
         T GetByIdentity(string identity);
     }

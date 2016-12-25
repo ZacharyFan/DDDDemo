@@ -2,10 +2,8 @@
 
 namespace Mall.Domain.SellingPrice.Promotion.Aggregate
 {
-    public abstract class PromotionRule : Infrastructure.DomainCore.Aggregate
+    public abstract class PromotionRule : Infrastructure.DomainCore.AggregateRoot
     {
-        public string PromotoinId { get; private set; }
-
         public string Title { get; private set; }
 
         protected PromotionRule(string promotionId, string title)
@@ -16,7 +14,7 @@ namespace Mall.Domain.SellingPrice.Promotion.Aggregate
             if (string.IsNullOrWhiteSpace(title))
                 throw new ArgumentNullException("title");
 
-            this.PromotoinId = promotionId;
+            this.ID = promotionId;
             this.Title = title;
         }
     }

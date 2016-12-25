@@ -2,7 +2,7 @@
 
 namespace Mall.Domain.SellingPrice.MemberPrice.ValueObject
 {
-    public class RoleDiscountRelation : Infrastructure.DomainCore.ValueObject
+    public class RoleDiscountRelation : Infrastructure.DomainCore.AloneStorableValueObject
     {
         public string RoleId { get; private set; }
 

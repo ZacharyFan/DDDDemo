@@ -1,9 +1,14 @@
 ﻿namespace Mall.Infrastructure.DomainCore
 {
     /// <summary>
-    /// 标识继承该类的是一个实体
+    /// 表示继承该类的是一个实体
     /// </summary>
-    public class Entity
+    public abstract class Entity : DelegateIdentifier
     {
+        public string ID
+        {
+            get { return this.Identity; }
+            protected set { this.Identity = value; }
+        }
     }
 }
