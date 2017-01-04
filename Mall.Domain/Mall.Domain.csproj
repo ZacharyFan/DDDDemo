@@ -39,12 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aggregate\Cart.cs" />
+    <Compile Include="CartModule\Aggregate\Cart.cs" />
     <Compile Include="DomainRegistry.cs" />
-    <Compile Include="Entity\CartItem.cs" />
+    <Compile Include="CartModule\Entity\CartItem.cs" />
+    <Compile Include="FavoritesModule\Aggregate\Favorites.cs" />
+    <Compile Include="FavoritesModule\Entity\FavoritesItem.cs" />
     <Compile Include="IRemoteServices\IProductService.cs" />
     <Compile Include="IRemoteServices\ISellingPriceService.cs" />
     <Compile Include="IRemoteServices\IUserService.cs" />
+    <Compile Include="IRepositories\IFavoritesRepository.cs" />
     <Compile Include="IRepositories\ICartRepository.cs" />
     <Compile Include="ValueObject\SellingPriceCart.cs" />
     <Compile Include="ValueObject\SellingPriceCartItem.cs" />

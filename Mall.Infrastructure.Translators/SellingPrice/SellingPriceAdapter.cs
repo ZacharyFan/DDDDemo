@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Mall.Application.SellingPrice;
 using Mall.Application.SellingPrice.DTO;
-using Mall.Domain.Aggregate;
+using Mall.Domain.CartModule.Aggregate;
 using Mall.Domain.ValueObject;
 
 namespace Mall.Infrastructure.Translators.SellingPrice

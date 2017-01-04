@@ -10,6 +10,7 @@ namespace Mall.Domain
         private static IProductService _productService;
         private static ICartRepository _cartRepository;
         private static ISellingPriceService _sellingPriceService;
+        private static IFavoritesRepository _favoritesRepository;
 
         public static void RegisterUserService(IUserService userService)
         {
@@ -39,6 +40,13 @@ namespace Mall.Domain
             _sellingPriceService = sellingPriceService;
         }
 
+        public static void RegisterFavoritesRepository(IFavoritesRepository favoritesRepository)
+        {
+            if (favoritesRepository == null)
+                throw new ArgumentNullException("favoritesRepository");
+            _favoritesRepository = favoritesRepository;
+        }
+
         public static IUserService UserService()
         {
             return _userService;
@@ -57,6 +65,11 @@ namespace Mall.Domain
         public static ISellingPriceService SellingPriceService()
         {
             return _sellingPriceService;
+        }
+
+        public static IFavoritesRepository FavoritesRepository()
+        {
+            return _favoritesRepository;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using Mall.Domain.Aggregate;
-using Mall.Domain.Entity;
+using Mall.Domain.CartModule.Aggregate;
+using Mall.Domain.ValueObject;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTest.Mall.Domain
@@ -13,7 +13,7 @@ namespace UnitTest.Mall.Domain
         public void ModifyQuantity_LessZero_ThrowArgumentException()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             var cartItem = cart.GetCartItem("11111111-1111-1111-1111-111111111111");
             Assert.AreNotEqual(null, cartItem);
             Assert.AreEqual(1, cartItem.Quantity);
@@ -25,7 +25,7 @@ namespace UnitTest.Mall.Domain
         public void ModifyQuantity_EqualsZero_ThrowArgumentException()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             var cartItem = cart.GetCartItem("11111111-1111-1111-1111-111111111111");
             Assert.AreNotEqual(null, cartItem);
             Assert.AreEqual(1, cartItem.Quantity);
@@ -36,7 +36,7 @@ namespace UnitTest.Mall.Domain
         public void ModifyQuantity_MoreZero_Success()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             var cartItem = cart.GetCartItem("11111111-1111-1111-1111-111111111111");
             Assert.AreNotEqual(null, cartItem);
             Assert.AreEqual(1, cartItem.Quantity);
@@ -49,7 +49,7 @@ namespace UnitTest.Mall.Domain
         public void ModifyPrice_LessZero_ThrowArgumentException()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             var cartItem = cart.GetCartItem("11111111-1111-1111-1111-111111111111");
             Assert.AreNotEqual(null, cartItem);
             Assert.AreEqual(100, cartItem.UnitPrice);
@@ -60,7 +60,7 @@ namespace UnitTest.Mall.Domain
         public void ModifyPrice_EqualsZero_Success()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             var cartItem = cart.GetCartItem("11111111-1111-1111-1111-111111111111");
             Assert.AreNotEqual(null, cartItem);
             Assert.AreEqual(100, cartItem.UnitPrice);
@@ -72,7 +72,7 @@ namespace UnitTest.Mall.Domain
         public void ModifyPrice_MoreZero_Success()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             var cartItem = cart.GetCartItem("11111111-1111-1111-1111-111111111111");
             Assert.AreNotEqual(null, cartItem);
             Assert.AreEqual(100, cartItem.UnitPrice);

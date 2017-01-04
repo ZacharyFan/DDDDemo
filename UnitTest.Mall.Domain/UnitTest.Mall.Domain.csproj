@@ -53,6 +53,8 @@
     <Compile Include="CartItemTest.cs" />
     <Compile Include="CartTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FavoritesItemTest.cs" />
+    <Compile Include="FavoritesTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mall.Domain\Mall.Domain.csproj">

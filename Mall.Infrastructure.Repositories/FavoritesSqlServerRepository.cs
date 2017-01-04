@@ -1,32 +1,27 @@
 ﻿using System;
-using Mall.Domain.CartModule.Aggregate;
+using Mall.Domain.FavoritesModule.Aggregate;
 using Mall.Domain.IRepositories;
 
 namespace Mall.Infrastructure.Repositories
 {
-    public class CartSqlServerRepository : ICartRepository
+    public class FavoritesSqlServerRepository : IFavoritesRepository
     {
         public string NextIdentity()
         {
             throw new NotImplementedException();
         }
 
-        public void Save(Cart cart)
+        public void Save(Favorites aggregate)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(string identity)
+        public Favorites GetByIdentity(string identity)
         {
             throw new NotImplementedException();
         }
 
-        public Cart GetByIdentity(string identity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Cart GetByUserId(string userId)
+        public Favorites GetByUserId(string userId)
         {
             throw new NotImplementedException();
         }

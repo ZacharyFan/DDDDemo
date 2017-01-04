@@ -1,6 +1,6 @@
 ﻿using System;
 using Mall.Domain;
-using Mall.Domain.Aggregate;
+using Mall.Domain.CartModule.Aggregate;
 
 namespace Mall.DomainService
 {

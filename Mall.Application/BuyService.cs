@@ -17,7 +17,7 @@ namespace Mall.Application
             }
 
             var cart = _confirmUserCartExistedDomainService.GetUserCart(userId);
-            cart.AddCartItem(productId, quantity, product.SalePrice);
+            cart.AddCartItem(product, quantity);
             DomainRegistry.CartRepository().Save(cart);
             return Result.Success();
         }

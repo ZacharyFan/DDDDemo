@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Mall.Domain.Entity;
+using Mall.Domain.CartModule.Entity;
+using Mall.Domain.ValueObject;
 
-namespace Mall.Domain.Aggregate
+namespace Mall.Domain.CartModule.Aggregate
 {
     public class Cart : Infrastructure.DomainCore.AggregateRoot
     {
@@ -31,9 +32,9 @@ namespace Mall.Domain.Aggregate
             this._cartItems = new List<CartItem>();
         }
 
-        public void AddCartItem(string productId, int quantity, decimal price)
+        public void AddCartItem(Product product, int quantity)
         {
-            var cartItem = new CartItem(productId, quantity, price, null);
+            var cartItem = new CartItem(product.ProductId, quantity, product.SalePrice, null);
             var existedCartItem = this._cartItems.SingleOrDefault(ent => ent.ID == cartItem.ID);
             if (existedCartItem == null)
             {
@@ -51,9 +52,18 @@ namespace Mall.Domain.Aggregate
             return this._cartItems.AsReadOnly();
         }
 
-        public CartItem GetCartItem(string productId)
+        public CartItem GetCartItem(string id)
         {
-            return this._cartItems.SingleOrDefault(ent => ent.ID == productId);
+            return this._cartItems.SingleOrDefault(ent => ent.ID == id);
+        }
+
+        public void RemoveCartItem(string id)
+        {
+            var cartItem = this._cartItems.SingleOrDefault(ent => ent.ID == id);
+            if (cartItem == null)
+                return;
+
+            this._cartItems.Remove(cartItem);
         }
 
         public bool IsEmpty()

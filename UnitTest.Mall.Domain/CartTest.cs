@@ -1,5 +1,6 @@
 ﻿using System;
-using Mall.Domain.Aggregate;
+using Mall.Domain.CartModule.Aggregate;
+using Mall.Domain.ValueObject;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTest.Mall.Domain
@@ -35,10 +36,10 @@ namespace UnitTest.Mall.Domain
         public void AddCartItem_NotExisted_TotalItemCountIsIncreased()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             Assert.AreEqual(1, cart.TotalItemCount());
 
-            cart.AddCartItem("22222222-2222-2222-2222-222222222222", 1, 100);
+            cart.AddCartItem(new Product("22222222-2222-2222-2222-222222222222", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             Assert.AreEqual(2, cart.TotalItemCount());
         }
 
@@ -46,11 +47,11 @@ namespace UnitTest.Mall.Domain
         public void AddCartItem_Existed_TotalItemCountIsNotIncreasedTotalItemNumIsIncreased()
         {
             var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), DateTime.Now);
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             Assert.AreEqual(1, cart.TotalItemCount());
             Assert.AreEqual(1, cart.TotalItemNum());
 
-            cart.AddCartItem("11111111-1111-1111-1111-111111111111", 1, 100);
+            cart.AddCartItem(new Product("11111111-1111-1111-1111-111111111111", "saleName", 200, 100, "saleDescription", int.MaxValue), 1);
             Assert.AreEqual(1, cart.TotalItemCount());
             Assert.AreEqual(2, cart.TotalItemNum());
         }

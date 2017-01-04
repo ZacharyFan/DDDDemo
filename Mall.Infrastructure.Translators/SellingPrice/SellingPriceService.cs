@@ -1,4 +1,4 @@
-﻿using Mall.Domain.Aggregate;
+﻿using Mall.Domain.CartModule.Aggregate;
 using Mall.Domain.IRemoteServices;
 using Mall.Domain.ValueObject;
 

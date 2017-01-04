@@ -1,10 +1,12 @@
 ﻿using System.Linq;
 using Mall.Application.DTO;
 using Mall.Domain;
-using Mall.Domain.Aggregate;
-using Mall.Domain.Entity;
+using Mall.Domain.CartModule.Aggregate;
+using Mall.Domain.CartModule.Entity;
+using Mall.Domain.FavoritesModule.Aggregate;
 using Mall.Domain.ValueObject;
 using Mall.DomainService;
+using Mall.Infrastructure.Results;
 
 namespace Mall.Application
 {
@@ -23,6 +25,81 @@ namespace Mall.Application
 
             var sellingPriceCart = DomainRegistry.SellingPriceService().Calculate(cart);
             return ConvertToCart(cart, sellingPriceCart);
+        }
+
+        public Result ChangeQuantity(string userId, string id, int quantity)
+        {
+            var cart = _confirmUserCartExistedDomainService.GetUserCart(userId);
+
+            if (cart.IsEmpty())
+            {
+                return Result.Fail("当前购物车中并没有商品");
+            }
+
+            var cartItem = cart.GetCartItem(id);
+            if (cartItem == null)
+            {
+                return Result.Fail("该购物项已不存在");
+            }
+
+            cartItem.ModifyQuantity(quantity);
+            DomainRegistry.CartRepository().Save(cart);
+            return Result.Success();
+        }
+
+        public Result DeleteCartItem(string userId, string id)
+        {
+            var cart = _confirmUserCartExistedDomainService.GetUserCart(userId);
+
+            if (cart.IsEmpty())
+            {
+                return Result.Fail("当前购物车中并没有商品");
+            }
+
+            cart.RemoveCartItem(id);
+            DomainRegistry.CartRepository().Save(cart);
+            return Result.Success();
+        }
+
+        public Result AddToFavorites(string userId, string productId)
+        {
+            var cart = _confirmUserCartExistedDomainService.GetUserCart(userId);
+
+            if (cart.IsEmpty())
+            {
+                return Result.Fail("当前购物车中并没有商品");
+            }
+
+            var cartItem = cart.GetCartItem(productId);
+            if (cartItem == null)
+            {
+                return Result.Fail("该购物项已不存在");
+            }
+
+            var favorites = DomainRegistry.FavoritesRepository().GetByUserId(userId) ?? new Favorites(userId, null);
+            favorites.AddFavoritesItem(cartItem);
+            DomainRegistry.FavoritesRepository().Save(favorites);
+            return Result.Success();
+        }
+
+        public Result ChangeMultiProductsPromotion(string userId, string productId, string selectedMultiProductsPromotionId)
+        {
+            var cart = _confirmUserCartExistedDomainService.GetUserCart(userId);
+
+            if (cart.IsEmpty())
+            {
+                return Result.Fail("当前购物车中并没有商品");
+            }
+
+            var cartItem = cart.GetCartItem(productId);
+            if (cartItem == null)
+            {
+                return Result.Fail("该购物项已不存在");
+            }
+
+            cartItem.ChangeMultiProductsPromotion(selectedMultiProductsPromotionId);
+            DomainRegistry.CartRepository().Save(cart);
+            return Result.Success();
         }
 
         private CartDTO ConvertToCart(Cart cart, SellingPriceCart sellingPriceCart)

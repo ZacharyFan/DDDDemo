@@ -1,5 +1,5 @@
 ﻿using System;
-using Mall.Domain.Aggregate;
+using Mall.Domain.CartModule.Aggregate;
 using Mall.Infrastructure.DomainCore;
 
 namespace Mall.Domain.IRepositories

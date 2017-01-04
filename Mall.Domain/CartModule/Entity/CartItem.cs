@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mall.Domain.Entity
+namespace Mall.Domain.CartModule.Entity
 {
     public class CartItem : Infrastructure.DomainCore.Entity
     {
