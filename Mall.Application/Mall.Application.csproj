@@ -41,12 +41,25 @@
   <ItemGroup>
     <Compile Include="BuyService.cs" />
     <Compile Include="CartService.cs" />
+    <Compile Include="CouponService.cs" />
+    <Compile Include="DeliveryService.cs" />
     <Compile Include="DTO\CartDTO.cs" />
     <Compile Include="DTO\CartItemDTO.cs" />
     <Compile Include="DTO\CartItemGroupDTO.cs" />
+    <Compile Include="DTO\CouponDTO.cs" />
+    <Compile Include="DTO\DeliveryEditShippingAddressRequest.cs" />
+    <Compile Include="DTO\ExpressDTO.cs" />
+    <Compile Include="DTO\PaymentMethodDTO.cs" />
+    <Compile Include="DTO\ShippingAddressDTO.cs" />
+    <Compile Include="DTO\WalletDTO.cs" />
     <Compile Include="IBuyService.cs" />
     <Compile Include="ICartService.cs" />
+    <Compile Include="ICouponService.cs" />
+    <Compile Include="IDeliveryService.cs" />
+    <Compile Include="IPaymentService.cs" />
+    <Compile Include="PaymentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DTO\DeliveryAddNewShippingAddressRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mall.DomainService\Mall.DomainService.csproj">

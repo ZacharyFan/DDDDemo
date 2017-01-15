@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Mall.Application.SellingPrice.DTO;
 using Mall.Domain.ValueObject;
 
@@ -13,14 +14,21 @@ namespace Mall.Infrastructure.Translators.SellingPrice
             return new SellingPriceCart(cartDTO.CartId, fullGroups, cartItems);
         }
 
-        public SellingPriceFullGroup ToSellingPriceFullGroup(CalculatedFullGroupDTO dto)
+        private SellingPriceFullGroup ToSellingPriceFullGroup(CalculatedFullGroupDTO dto)
         {
             return new SellingPriceFullGroup(dto.CalculatedCartItems.Select(ToSellingPriceCartItem), dto.ReducePrice, dto.MultiProductsPromotionId);
         }
 
-        public SellingPriceCartItem ToSellingPriceCartItem(CalculatedCartItemDTO dto)
+        private SellingPriceCartItem ToSellingPriceCartItem(CalculatedCartItemDTO dto)
         {
             return new SellingPriceCartItem(dto.ProductId, dto.ReducePrice);
+        }
+
+        public List<Coupon> ToCoupons(IEnumerable<CouponDTO> coupons)
+        {
+            if (coupons == null)
+                return null;
+            return coupons.Select(ent => new Coupon(ent.ID, ent.Name, ent.CanUse, ent.Value, ent.ExpiryDate)).ToList();
         }
     }
 }

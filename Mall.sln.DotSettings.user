@@ -2,7 +2,7 @@
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=22289F57D91348FA8C0CDE4812A3AA51/@KeyIndexDefined">True</s:Boolean>
 	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=22289F57D91348FA8C0CDE4812A3AA51/GroupingIndex/@EntryValue">4</s:Int64>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=22289F57D91348FA8C0CDE4812A3AA51/Name/@EntryValue">FavoritesTest</s:String>
-	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=22289F57D91348FA8C0CDE4812A3AA51/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;e Id="UnitTest.Mall.Domain.FavoritesTest" Project="60754FAF-64A8-4186-8167-90EE18E30AF0" Provider="MSTest" /&gt;&lt;e Id="UnitTest.Mall.Domain.FavoritesTest.Constructor_UserIdDefault_ThrowArgumentNullException" Project="60754FAF-64A8-4186-8167-90EE18E30AF0" Provider="MSTest" /&gt;&lt;/Session&gt;</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=22289F57D91348FA8C0CDE4812A3AA51/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;/Session&gt;</s:String>
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=7300DB5262814EF4AFB8FADCC833DDF0/@KeyIndexDefined">True</s:Boolean>
 	<s:Int64 x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=7300DB5262814EF4AFB8FADCC833DDF0/GroupingIndex/@EntryValue">4</s:Int64>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=7300DB5262814EF4AFB8FADCC833DDF0/Name/@EntryValue">UnitTest_PromotionRuleFullGifts</s:String>

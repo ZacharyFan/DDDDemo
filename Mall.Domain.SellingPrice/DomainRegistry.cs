@@ -1,7 +1,6 @@
 ﻿using System;
 using Mall.Domain.SellingPrice.IRemoteServices;
 using Mall.Domain.SellingPrice.IRepositories;
-using Mall.Domain.SellingPrice.Promotion.IRepositories;
 
 namespace Mall.Domain.SellingPrice
 {
@@ -10,6 +9,8 @@ namespace Mall.Domain.SellingPrice
         private static IPromotionRepository _promotionRepository;
         private static IUserService _userService;
         private static IRoleDiscountRelationRepository _roleDiscountRelationRepository;
+        private static ICouponRepository _couponRepository;
+        private static ICouponNoRepository _couponNoRepository;
 
         public static void RegisterPromotionRepository(IPromotionRepository promotionRepository)
         {
@@ -32,6 +33,20 @@ namespace Mall.Domain.SellingPrice
             _roleDiscountRelationRepository = roleDiscountRelationRepository;
         }
 
+        public static void RegisterCouponRepository(ICouponRepository couponRepository)
+        {
+            if (couponRepository == null)
+                throw new ArgumentNullException("couponRepository");
+            _couponRepository = couponRepository;
+        }
+
+        public static void RegisterCouponNoRepository(ICouponNoRepository couponNoRepository)
+        {
+            if (couponNoRepository == null)
+                throw new ArgumentNullException("couponNoRepository");
+            _couponNoRepository = couponNoRepository;
+        }
+
         public static IPromotionRepository PromotionRepository()
         {
             return _promotionRepository;
@@ -45,6 +60,16 @@ namespace Mall.Domain.SellingPrice
         public static IRoleDiscountRelationRepository RoleDiscountRelationRepository()
         {
             return _roleDiscountRelationRepository;
+        }
+
+        public static ICouponRepository CouponRepository()
+        {
+            return _couponRepository;
+        }
+
+        public static ICouponNoRepository CouponNoRepository()
+        {
+            return _couponNoRepository;
         }
     }
 }

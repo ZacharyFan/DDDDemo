@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartSqlServerRepository.cs" />
+    <Compile Include="CouponNoRepository.cs" />
+    <Compile Include="CouponRepository.cs" />
+    <Compile Include="ExpressSqlServerRepository.cs" />
     <Compile Include="FavoritesSqlServerRepository.cs" />
     <Compile Include="PromotionSqlServerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

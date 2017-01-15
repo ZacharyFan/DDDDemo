@@ -11,6 +11,8 @@ namespace Mall.Domain
         private static ICartRepository _cartRepository;
         private static ISellingPriceService _sellingPriceService;
         private static IFavoritesRepository _favoritesRepository;
+        private static IPaymentService _paymentService;
+        private static IExpressRepository _expressRepository;
 
         public static void RegisterUserService(IUserService userService)
         {
@@ -47,6 +49,20 @@ namespace Mall.Domain
             _favoritesRepository = favoritesRepository;
         }
 
+        public static void RegisterPaymentService(IPaymentService paymentService)
+        {
+            if (paymentService == null)
+                throw new ArgumentNullException("paymentService");
+            _paymentService = paymentService;
+        }
+
+        public static void RegisterExpressRepository(IExpressRepository expressRepository)
+        {
+            if (expressRepository == null)
+                throw new ArgumentNullException("expressRepository");
+            _expressRepository = expressRepository;
+        }
+
         public static IUserService UserService()
         {
             return _userService;
@@ -70,6 +86,16 @@ namespace Mall.Domain
         public static IFavoritesRepository FavoritesRepository()
         {
             return _favoritesRepository;
+        }
+
+        public static IPaymentService PaymentService()
+        {
+            return _paymentService;
+        }
+
+        public static IExpressRepository ExpressRepository()
+        {
+            return _expressRepository;
         }
     }
 }

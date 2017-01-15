@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Mall.Domain.SellingPrice.Promotion.Aggregate;
 using Mall.Infrastructure.DomainCore;
 
-namespace Mall.Domain.SellingPrice.Promotion.IRepositories
+namespace Mall.Domain.SellingPrice.IRepositories
 {
     public interface IPromotionRepository : IRepository<PromotionRule>
     {

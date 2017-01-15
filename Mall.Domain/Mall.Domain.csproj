@@ -44,11 +44,16 @@
     <Compile Include="CartModule\Entity\CartItem.cs" />
     <Compile Include="FavoritesModule\Aggregate\Favorites.cs" />
     <Compile Include="FavoritesModule\Entity\FavoritesItem.cs" />
+    <Compile Include="IRemoteServices\IPaymentService.cs" />
     <Compile Include="IRemoteServices\IProductService.cs" />
     <Compile Include="IRemoteServices\ISellingPriceService.cs" />
     <Compile Include="IRemoteServices\IUserService.cs" />
+    <Compile Include="IRepositories\IExpressRepository.cs" />
     <Compile Include="IRepositories\IFavoritesRepository.cs" />
     <Compile Include="IRepositories\ICartRepository.cs" />
+    <Compile Include="DeliveryModule\Aggregate\Express.cs" />
+    <Compile Include="ValueObject\Coupon.cs" />
+    <Compile Include="ValueObject\PaymentMethod.cs" />
     <Compile Include="ValueObject\SellingPriceCart.cs" />
     <Compile Include="ValueObject\SellingPriceCartItem.cs" />
     <Compile Include="ValueObject\SellingPriceFullGroup.cs" />
@@ -56,7 +61,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueObject\ShippingAddress.cs" />
     <Compile Include="ValueObject\User.cs" />
+    <Compile Include="ValueObject\Wallet.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

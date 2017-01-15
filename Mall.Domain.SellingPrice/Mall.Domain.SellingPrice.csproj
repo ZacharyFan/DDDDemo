@@ -39,8 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coupon\Aggregate\Coupon.cs" />
+    <Compile Include="Coupon\Aggregate\CouponNo.cs" />
     <Compile Include="DomainRegistry.cs" />
     <Compile Include="IRemoteServices\IUserService.cs" />
+    <Compile Include="IRepositories\ICouponNoRepository.cs" />
+    <Compile Include="IRepositories\ICouponRepository.cs" />
     <Compile Include="IRepositories\IRoleDiscountRelationRepository.cs" />
     <Compile Include="MemberPrice\ValueObject\RoleDiscountRelation.cs" />
     <Compile Include="MemberPrice\ValueObject\UserRoleRelation.cs" />
@@ -54,12 +58,14 @@
     <Compile Include="Promotion\Aggregate\PromotionRuleMeetReduction.cs" />
     <Compile Include="Promotion\Aggregate\PromotionRuleLimitTimeDiscount.cs" />
     <Compile Include="Promotion\Aggregate\SingleProductPromotionRule.cs" />
-    <Compile Include="Promotion\IRepositories\IPromotionRepository.cs" />
+    <Compile Include="IRepositories\IPromotionRepository.cs" />
     <Compile Include="Promotion\ValueObject\BoughtProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Promotion\ValueObject\PromotionContainsProduct.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Coupon\Entity\" />
+    <Folder Include="Coupon\ValueObject\" />
     <Folder Include="MemberPrice\Aggregate\" />
     <Folder Include="MemberPrice\Entity\" />
     <Folder Include="MemberPrice\IRepositories\" />

@@ -1,4 +1,5 @@
-﻿using Mall.Infrastructure.Results;
+﻿using Mall.Application.DTO;
+using Mall.Infrastructure.Results;
 
 namespace Mall.Application
 {

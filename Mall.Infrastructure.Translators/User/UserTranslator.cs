@@ -1,4 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using Mall.Domain.ValueObject;
 using Mall.Infrastructure.ResponseHandle;
 
 namespace Mall.Infrastructure.Translators.User
@@ -24,6 +27,11 @@ namespace Mall.Infrastructure.Translators.User
 
             var user = new Domain.ValueObject.User(userIdstr, userName, availableBalance);
             return user;
+        }
+
+        public List<ShippingAddress> ToShippingAddresses(string jsonData)
+        {
+            throw new NotImplementedException();
         }
     }
 }

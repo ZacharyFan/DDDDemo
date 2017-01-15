@@ -40,12 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculateSalePriceService.cs" />
+    <Compile Include="CouponService.cs" />
     <Compile Include="DTO\CalculatedCartDTO.cs" />
     <Compile Include="DTO\CalculatedCartItemDTO.cs" />
     <Compile Include="DTO\CalculatedFullGroupDTO.cs" />
     <Compile Include="DTO\CartRequest.cs" />
     <Compile Include="DTO\CartItemRequest.cs" />
+    <Compile Include="DTO\CouponDTO.cs" />
     <Compile Include="ICalculateSalePriceService.cs" />
+    <Compile Include="ICouponService.cs" />
     <Compile Include="Mapper\ValueObjectToDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

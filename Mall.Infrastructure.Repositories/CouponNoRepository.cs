@@ -1,33 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using Mall.Domain.SellingPrice.Coupon.Aggregate;
 using Mall.Domain.SellingPrice.IRepositories;
-using Mall.Domain.SellingPrice.Promotion.Aggregate;
 
 namespace Mall.Infrastructure.Repositories
 {
-    public class PromotionSqlServerRepository : IPromotionRepository
+    public class CouponNoRepository : ICouponNoRepository
     {
         public string NextIdentity()
         {
             throw new NotImplementedException();
         }
 
-        public void Save(PromotionRule aggregate)
+        public void Save(CouponNo aggregate)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(string identity)
+        public CouponNo GetByIdentity(string identity)
         {
             throw new NotImplementedException();
         }
 
-        public PromotionRule GetByIdentity(string identity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<PromotionRule> GetListByContainsProductId(string productId)
+        public List<CouponNo> GetNotUsedByUserId(string userId)
         {
             throw new NotImplementedException();
         }
