@@ -18,5 +18,10 @@ namespace Mall.Infrastructure.Translators.SellingPrice
         {
             return _sellingPriceAdapter.CalculateAllCoupons(cart);
         }
+
+        public Coupon GetCoupon(string id)
+        {
+            return _sellingPriceAdapter.GetCoupon(id);
+        }
     }
 }

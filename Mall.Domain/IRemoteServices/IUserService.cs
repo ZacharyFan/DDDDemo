@@ -15,5 +15,7 @@ namespace Mall.Domain.IRemoteServices
         void EditShippingAddress(ShippingAddress editAddress);
 
         void DeleteShippingAddress(string id);
+
+        ShippingAddress GetShippingAddress(string id);
     }
 }

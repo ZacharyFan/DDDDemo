@@ -8,5 +8,7 @@ namespace Mall.Domain.IRemoteServices
         List<PaymentMethod> GetAllPaymentMethods();
 
         Wallet GetWalletByUserId(string userId);
+
+        PaymentMethod GetPaymentMethod(string id);
     }
 }

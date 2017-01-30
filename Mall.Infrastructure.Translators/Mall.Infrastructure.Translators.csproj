@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order\OrderAdapter.cs" />
+    <Compile Include="Order\OrderService.cs" />
+    <Compile Include="Order\OrderTranslator.cs" />
     <Compile Include="Payment\PaymentAdapter.cs" />
     <Compile Include="Payment\PaymentService.cs" />
     <Compile Include="Payment\PaymentTranslator.cs" />
@@ -55,6 +58,10 @@
     <Compile Include="User\UserTranslator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mall.Application.Order\Mall.Application.Order.csproj">
+      <Project>{75e06b3e-9ae9-47d1-86ce-a9f9d6634bfa}</Project>
+      <Name>Mall.Application.Order</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mall.Application.SellingPrice\Mall.Application.SellingPrice.csproj">
       <Project>{ee4ba669-b006-4131-b4a1-92e854eb38e7}</Project>
       <Name>Mall.Application.SellingPrice</Name>

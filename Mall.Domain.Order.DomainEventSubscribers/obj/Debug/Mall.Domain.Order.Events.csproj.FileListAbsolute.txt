@@ -1,0 +1,4 @@
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.Order.Events\bin\Debug\Mall.Domain.Order.Events.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.Order.Events\bin\Debug\Mall.Domain.Order.Events.pdb
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.Order.Events\obj\Debug\Mall.Domain.Order.Events.dll
+C:\Workspaces\Demo\DDDDemo\Mall.Domain.Order.Events\obj\Debug\Mall.Domain.Order.Events.pdb

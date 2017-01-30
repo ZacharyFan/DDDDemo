@@ -25,6 +25,12 @@ namespace Mall.Infrastructure.Translators.SellingPrice
             return _sellingPriceTranslator.ToCoupons(couponDtos);
         }
 
+        public Coupon GetCoupon(string id)
+        {
+            var couponDto = _couponService.GetCoupon(id);
+            return _sellingPriceTranslator.ToCoupon(couponDto);
+        }
+
         private CartRequest ToRequest(Cart cart)
         {
             return new CartRequest

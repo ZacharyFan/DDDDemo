@@ -101,5 +101,24 @@ namespace Mall.Infrastructure.Translators.User
                 throw new ApplicationException("删除收货地址请求失败，状态码：" + httpWebResponse.StatusCode.ToString());
             }
         }
+
+        public ShippingAddress GetShippingAddress(string id)
+        {
+            var url = string.Format("http://www.test.com/user/shippingaddress/get/{0}", id);
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            using (HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse())
+            {
+                if (httpWebResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    using (var stream = httpWebResponse.GetResponseStream())
+                    {
+                        var strReturn = new StreamReader(stream, Encoding.UTF8).ReadToEnd();
+                        return _userTranslator.ToShippingAddress(strReturn);
+                    }
+                }
+
+                throw new ApplicationException("删除收货地址请求失败，状态码：" + httpWebResponse.StatusCode.ToString());
+            }
+        }
     }
 }

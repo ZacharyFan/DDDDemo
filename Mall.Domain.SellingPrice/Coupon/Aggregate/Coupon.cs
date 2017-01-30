@@ -12,7 +12,7 @@ namespace Mall.Domain.SellingPrice.Coupon.Aggregate
         public decimal Value { get; private set; }
 
         public DateTime ExpiryDate { get; private set; }
-
+        
         public List<string> ContainsProductIds { get; private set; }
 
         public Coupon(string name, decimal value, DateTime expiryDate, IEnumerable<string> containsProductIds)

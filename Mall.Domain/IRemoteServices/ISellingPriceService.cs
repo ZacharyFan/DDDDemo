@@ -10,5 +10,7 @@ namespace Mall.Domain.IRemoteServices
         SellingPriceCart Calculate(Cart cart);
 
         List<Coupon> CalculateAllCoupons(Cart cart);
+
+        Coupon GetCoupon(string id);
     }
 }

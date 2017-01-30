@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainEventCore\DomainEvent.cs" />
+    <Compile Include="DomainEventCore\DomainEventBus.cs" />
+    <Compile Include="DomainEventCore\DomainEventSubscriber.cs" />
+    <Compile Include="DomainEventCore\IDomainEvent.cs" />
+    <Compile Include="DomainEventCore\IDomainEventSubscriber.cs" />
     <Compile Include="DomainCore\AggregateRoot.cs" />
     <Compile Include="DomainCore\AloneStorableValueObject.cs" />
     <Compile Include="DomainCore\ConcurrencySafeAggregate.cs" />

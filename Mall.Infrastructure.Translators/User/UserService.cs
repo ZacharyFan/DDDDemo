@@ -32,5 +32,10 @@ namespace Mall.Infrastructure.Translators.User
         {
             _userAdapter.DeleteShippingAddress(id);
         }
+
+        public ShippingAddress GetShippingAddress(string id)
+        {
+            return _userAdapter.GetShippingAddress(id);
+        }
     }
 }

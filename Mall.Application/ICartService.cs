@@ -14,5 +14,7 @@ namespace Mall.Application
         Result AddToFavorites(string userId, string productId);
 
         Result ChangeMultiProductsPromotion(string userId, string productId, string selectedMultiProductsPromotionId);
+
+        Result SubmitOrder(SumbitOrderRequest request);
     }
 }

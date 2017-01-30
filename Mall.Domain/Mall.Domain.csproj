@@ -44,6 +44,7 @@
     <Compile Include="CartModule\Entity\CartItem.cs" />
     <Compile Include="FavoritesModule\Aggregate\Favorites.cs" />
     <Compile Include="FavoritesModule\Entity\FavoritesItem.cs" />
+    <Compile Include="IRemoteServices\IOrderService.cs" />
     <Compile Include="IRemoteServices\IPaymentService.cs" />
     <Compile Include="IRemoteServices\IProductService.cs" />
     <Compile Include="IRemoteServices\ISellingPriceService.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObject\ShippingAddress.cs" />
     <Compile Include="ValueObject\User.cs" />
+    <Compile Include="ValueObject\WaitCreateOrder.cs" />
+    <Compile Include="ValueObject\WaitCreateOrderItem.cs" />
     <Compile Include="ValueObject\Wallet.cs" />
   </ItemGroup>
   <ItemGroup />

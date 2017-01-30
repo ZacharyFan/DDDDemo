@@ -16,14 +16,18 @@ namespace Mall.Domain.SellingPrice.Coupon.Aggregate
 
         public string UserId { get; private set; }
 
-        public CouponNo(string couponId, DateTime usedTime, string userId)
+        public CouponNo(string couponNo, string couponId, DateTime usedTime, string userId)
         {
+            if (string.IsNullOrWhiteSpace(couponNo))
+                throw new ArgumentNullException("couponNo");
+
             if (string.IsNullOrWhiteSpace(couponId))
                 throw new ArgumentNullException("couponId");
 
             if (string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentNullException("userId");
 
+            this.ID = couponNo;
             this.CouponId = couponId;
             this.UsedTime = usedTime;
             this.UserId = userId;

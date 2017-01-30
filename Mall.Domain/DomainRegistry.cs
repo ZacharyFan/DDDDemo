@@ -13,6 +13,7 @@ namespace Mall.Domain
         private static IFavoritesRepository _favoritesRepository;
         private static IPaymentService _paymentService;
         private static IExpressRepository _expressRepository;
+        private static IOrderService _orderService;
 
         public static void RegisterUserService(IUserService userService)
         {
@@ -63,6 +64,14 @@ namespace Mall.Domain
             _expressRepository = expressRepository;
         }
 
+        public static void RegisterOrderService(IOrderService orderService)
+        {
+            if (orderService == null)
+                throw new ArgumentNullException("orderService");
+
+            _orderService = orderService;
+        }
+
         public static IUserService UserService()
         {
             return _userService;
@@ -96,6 +105,11 @@ namespace Mall.Domain
         public static IExpressRepository ExpressRepository()
         {
             return _expressRepository;
+        }
+
+        public static IOrderService OrderService()
+        {
+            return _orderService;
         }
     }
 }

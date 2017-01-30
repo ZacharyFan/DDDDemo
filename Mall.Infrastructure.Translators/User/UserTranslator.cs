@@ -33,5 +33,10 @@ namespace Mall.Infrastructure.Translators.User
         {
             throw new NotImplementedException();
         }
+
+        public ShippingAddress ToShippingAddress(string jsonData)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

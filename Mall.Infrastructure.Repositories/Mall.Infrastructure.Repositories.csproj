@@ -44,11 +44,16 @@
     <Compile Include="CouponRepository.cs" />
     <Compile Include="ExpressSqlServerRepository.cs" />
     <Compile Include="FavoritesSqlServerRepository.cs" />
+    <Compile Include="OrderSqlServerRepository.cs" />
     <Compile Include="PromotionSqlServerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleDiscountRelationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mall.Domain.Order\Mall.Domain.Order.csproj">
+      <Project>{ce0955df-ba7d-46a1-8032-8517b078bfce}</Project>
+      <Name>Mall.Domain.Order</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mall.Domain.SellingPrice\Mall.Domain.SellingPrice.csproj">
       <Project>{bcafda37-3fa9-4174-97fd-bc24d0459712}</Project>
       <Name>Mall.Domain.SellingPrice</Name>

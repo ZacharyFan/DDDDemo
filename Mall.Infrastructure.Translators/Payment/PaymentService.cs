@@ -18,5 +18,10 @@ namespace Mall.Infrastructure.Translators.Payment
         {
             return _paymentAdapter.GetWalletByUserId(userId);
         }
+
+        public PaymentMethod GetPaymentMethod(string id)
+        {
+            return _paymentAdapter.GetPaymentMethod(id);
+        }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="DTO\ExpressDTO.cs" />
     <Compile Include="DTO\PaymentMethodDTO.cs" />
     <Compile Include="DTO\ShippingAddressDTO.cs" />
+    <Compile Include="DTO\SumbitOrderRequest.cs" />
     <Compile Include="DTO\WalletDTO.cs" />
     <Compile Include="IBuyService.cs" />
     <Compile Include="ICartService.cs" />

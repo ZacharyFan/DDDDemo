@@ -12,6 +12,11 @@ namespace Mall.Infrastructure.Translators.Payment
             throw new NotImplementedException();
         }
 
+        public PaymentMethod ToPaymentMethod(string jsonData)
+        {
+            throw new NotImplementedException();
+        }
+
         public Wallet ToWallet(string jsonData)
         {
             JsonResponseReader reader = new JsonResponseReader(jsonData);
