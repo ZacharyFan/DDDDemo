@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Mall.Domain.Order.DomainEvent.Events;
 using Mall.Domain.Order.Entity;
 using Mall.Infrastructure.DomainCore;
+using Mall.Infrastructure.DomainEventCore;
 
 namespace Mall.Domain.Order.Aggregate
 {
@@ -157,7 +159,11 @@ namespace Mall.Domain.Order.Aggregate
 
         public static Order Create(string id, string userId, string receiver, string countryId, string countryName, string provinceId, string provinceName, string cityId, string cityName, string districtId, string districtName, string address, string mobile, string phone, string email, string paymentMethodId, string paymentMethodName, string expressId, string expressName, decimal freight, string couponId, string couponName, decimal couponValue, DateTime orderTime)
         {
-            return new Order(id, userId, receiver, countryId, countryName, provinceId, provinceName, cityId, cityName, districtId, districtName, address, mobile, phone, email, paymentMethodId, paymentMethodName, expressId, expressName, freight, couponId, couponName, couponValue, orderTime, default(DateTime));
+            var order = new Order(id, userId, receiver, countryId, countryName, provinceId, provinceName, cityId, cityName, districtId, districtName, address, mobile, phone, email, paymentMethodId, paymentMethodName, expressId, expressName, freight, couponId, couponName, couponValue, orderTime, default(DateTime));
+
+            DomainEventBus.Instance().Publish(new OrderCreated(order.ID, order.UserId, order.Receiver));
+
+            return order;
         }
 
         public void AddOrderItem(string productId, int quantity, decimal unitPrice, string joinedMultiProductsPromotionId, string productName)

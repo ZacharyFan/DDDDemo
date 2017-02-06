@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainCore\IUnitOfWork.cs" />
+    <Compile Include="DomainCore\SqlServerUnitOfWork.cs" />
+    <Compile Include="DomainCore\UnitOfWork.cs" />
     <Compile Include="DomainEventCore\DomainEvent.cs" />
     <Compile Include="DomainEventCore\DomainEventBus.cs" />
     <Compile Include="DomainEventCore\DomainEventSubscriber.cs" />

@@ -1,6 +1,7 @@
 ﻿using Mall.Application.Order.DTO;
 using Mall.Domain.Order;
 using Mall.Domain.Order.DomainEvent.Events;
+using Mall.Infrastructure.DomainCore;
 using Mall.Infrastructure.DomainEventCore;
 using Mall.Infrastructure.Results;
 
@@ -30,8 +31,10 @@ namespace Mall.Application.Order
                 order.AddOrderItem(orderItemRequest.ProductId, orderItemRequest.Quantity, orderItemRequest.UnitPrice, orderItemRequest.JoinedMultiProductsPromotionId, orderItemRequest.ProductName);
             }
 
-            DomainRegistry.OrderRepository().Save(order);
-            DomainEventBus.Instance().Publish(new OrderCreated(order.ID, order.UserId, order.Receiver));
+            //DomainRegistry.OrderRepository().Save(order);
+            IUnitOfWork unitOfWork = new SqlServerUnitOfWork();
+            unitOfWork.RegisterSaved(order);
+            unitOfWork.Commit();
             return Result.Success();
         }
     }
